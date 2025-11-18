@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      background: #01020a;
+      opacity: 0;
+      animation: pageFadeIn 1.2s ease forwards;
+    }
+
+    @keyframes pageFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Neon animated grid */
+    .grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: 50px 50px;
+      background-image: linear-gradient(rgba(0,255,255,0.15) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,255,255,0.15) 1px, transparent 1px);
+      animation: moveGrid 12s linear infinite;
+      z-index: -5;
+    }
+
+    @keyframes moveGrid {
+      from { background-position: 0 0; }
+      to { background-position: 0 50px; }
+    }
+
+    /* Neon pulse circles */
+    .pulse {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,255,0.3), transparent 70%);
+      animation: pulse 5s ease-in-out infinite;
+      z-index: -4;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.4); opacity: 0.8; }
+    }
+
+    /* Floating circuit lines */
+    .circuit-line {
+      position: absolute;
+      width: 2px;
+      height: 200px;
+      background: rgba(0,255,255,0.7);
+      box-shadow: 0 0 20px cyan, 0 0 40px #0ff;
+      animation: floatCircuit 6s linear infinite;
+      z-index: -3;
+    }
+
+    @keyframes floatCircuit {
+      from { transform: translateY(110vh) rotate(0deg); opacity: 0.4; }
+      to { transform: translateY(-20vh) rotate(360deg); opacity: 1; }
+    }
+
+    /* Neon hologram beams */
+    .hologram {
+      position: absolute;
+      width: 2px;
+      height: 100vh;
+      background: linear-gradient(transparent, cyan, transparent);
+      animation: floatHolo 8s linear infinite;
+      z-index: -2;
+    }
+
+    @keyframes floatHolo {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-100vh); }
+    }
+
+    /* Floating neon dots */
+    .dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #0ff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px cyan;
+      animation: floatDot linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatDot {
+      0% { transform: translateY(100vh) translateX(0px); }
+      100% { transform: translateY(-20vh) translateX(50px); }
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      animation: fadeInDown 1.2s ease forwards;
+      text-shadow: 0 0 15px cyan, 0 0 30px #0ff;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: 0.6s;
+      text-shadow: 0 0 10px cyan, 0 0 25px #0ff;
+    }
+
+    a button {
+      padding: 16px 35px;
+      font-size: 1.4rem;
+      border: none;
+      border-radius: 14px;
+      background: rgba(0,255,255,0.9);
+      color: #0b0f1a;
+      cursor: pointer;
+      transform: scale(0);
+      animation: popIn 0.8s ease forwards;
+      animation-delay: 1.2s;
+      font-weight: bold;
+      box-shadow: 0 0 20px cyan, 0 0 35px #0ff;
+      transition: 0.3s;
+    }
+
+    a button:hover {
+      transform: scale(1.1);
+      background: cyan;
+      box-shadow: 0 0 30px white, 0 0 50px #0ff;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid"></div>
+  <div class="pulse"></div>
+
+  <h1>Welcome to my portfolio</h1>
+  <h2>by Lars Gabriel Ramos</h2>
+  <a href="index.html.html"><button>To My Portfolio</button></a>
+
+  <!-- Floating circuit lines -->
+  <div class="circuit-line" style="left: 10%; animation-duration: 7s;"></div>
+  <div class="circuit-line" style="left: 30%; animation-duration: 9s;"></div>
+  <div class="circuit-line" style="left: 55%; animation-duration: 6s;"></div>
+  <div class="circuit-line" style="left: 75%; animation-duration: 8s;"></div>
+
+  <!-- Hologram beams -->
+  <div class="hologram" style="left:15%; animation-duration:7s;"></div>
+  <div class="hologram" style="left:40%; animation-duration:9s;"></div>
+  <div class="hologram" style="left:65%; animation-duration:8s;"></div>
+
+  <!-- Floating neon dots -->
+  <div class="dot" style="left: 20%; animation-duration: 8s;"></div>
+  <div class="dot" style="left: 50%; animation-duration: 10s;"></div>
+  <div class="dot" style="left: 80%; animation-duration: 7s;"></div>
+
+</body>
+</html>

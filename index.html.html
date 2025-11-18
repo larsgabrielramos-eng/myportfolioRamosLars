@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lars Gabriel Ramos - Portfolio</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #01020a;
+      color: #0ff;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 50px 50px;
+      background-image: linear-gradient(rgba(0,255,255,0.15) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,255,255,0.15) 1px, transparent 1px);
+      animation: moveGrid 12s linear infinite;
+      z-index: -5;
+    }
+
+    @keyframes moveGrid {
+      from { background-position: 0 0; }
+      to { background-position: 0 50px; }
+    }
+
+    header {
+      padding: 100px 20px 60px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px cyan, 0 0 30px #0ff;
+    }
+
+    p { 
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    nav {
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      padding:15px 0;
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    nav a {
+      color:#0ff; 
+      text-decoration:none; 
+      font-weight:bold; 
+      font-size:1.1rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    section {
+      background: rgba(0,0,0,0.6);
+      margin: 40px auto;
+      padding: 40px;
+      width: 85%;
+      max-width: 900px;
+      border-radius: 25px;
+      border: 1px solid rgba(0,255,255,0.3);
+      box-shadow: 0px 8px 18px rgba(0,255,255,0.2);
+      transition: 0.3s ease;
+      position: relative;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 12px 25px rgba(0,255,255,0.4);
+    }
+
+    h2 {
+      color: #0ff;
+      border-left: 6px solid #0ff;
+      padding-left: 12px;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    ul li {
+      padding: 6px 0;
+      font-size: 1.15rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.8);
+      font-weight: bold;
+      color: #0ff;
+      border-top: 3px solid #0ff;
+      border-radius: 30px 30px 0 0;
+      margin-top: 60px;
+    }
+
+    .highlight {
+      color: #0ff;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 12px 25px; 
+      font-size:1rem; 
+      border:none; 
+      border-radius:12px; 
+      cursor:pointer; 
+      background: rgba(0,255,255,0.9); 
+      color:#01020a; 
+      box-shadow:0 3px 8px rgba(0,255,255,0.3);
+      transition:0.3s;
+      margin: 10px 5px;
+    }
+
+    button:hover {
+      background: cyan;
+      transform: scale(1.05);
+      box-shadow:0 0 20px cyan;
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      z-index: 101;
+    }
+
+    .return-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 12px;
+      background: rgba(0,255,255,0.9);
+      color: #01020a;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,255,255,0.3);
+      transition: 0.3s;
+      z-index: 101;
+    }
+
+    .return-btn:hover {
+      background: cyan;
+      transform: scale(1.05);
+      box-shadow:0 0 20px cyan;
+    }
+
+    .view-projects-btn {
+      position: absolute;
+      right: 20px;
+      top: 0;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      background: rgba(0,255,255,0.8);
+      color: #01020a;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .view-projects-btn:hover {
+      background: cyan;
+      box-shadow: 0 0 15px cyan;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Return Button -->
+  <button class="return-btn" onclick="window.location.href='welcome.html.html'">Return to Welcome Page</button>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <div class="top-buttons">
+      <a href="Lars_Gabriel_Ramos_Resume.pdf" download><button>Download Resume</button></a>
+    </div>
+    <img src="7d2634c1-48af-4cef-8049-98326315a302.jpg" alt="Lars Gabriel Ramos Photo" style="width:250px;height:250px;border-radius:20px;border:5px solid #0ff;box-shadow:0 8px 25px rgba(0,255,255,0.5);margin-bottom:25px;object-fit:cover;">
+    <h1>Lars Gabriel Ramos</h1>
+    <p>Welcome to my <span class="highlight">creative portfolio</span></p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! My name is <span class="highlight">Lars Gabriel Ramos</span>. I enjoy playing video games, basketball, and coding is my hobby. I love learning new programming concepts and working on creative projects. I am passionate about technology and enjoy solving problems with code. I dedicate time every day to improve my coding skills. I am a quick learner and always seek new challenges. I also enjoy collaborating with others on projects to gain experience. My goal is to become a professional software developer. I believe that persistence and curiosity are keys to success. I am excited to continue growing my skills and making a positive impact with my projects.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Basic Java programming</li>
+      <li>Basic HTML and web design</li>
+      <li>Basic C# programming</li>
+      <li>Basic Python coding</li>
+    </ul>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <p>I have experience in basic coding using Java, HTML, C#, and Python. I can create simple programs, applications, and websites.</p>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <ul>
+      <li>High School Graduate</li>
+      <li>Senior High School Graduate (STEM) with Honors</li>
+      <li>Won a Python coding contest (2022)</li>
+      <li>Junior Java Programming Competition (2022)</li>
+      <li>Top Performer in Intro to Programming Bootcamp</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <button class="view-projects-btn" onclick="window.location.href='project.html.html'">View Sample Projects</button>
+    <ul>
+      <li>Library Management System</li>
+      <li>Personal Portfolio Website</li>
+      <li>Contact Management System</li>
+      <li>Loops and Iterations</li>
+      <li>Java Calculator</li>
+      <li>Tic Tac Toe Java Game</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <ul>
+      <li>📧 Email: <a href="mailto:larsgabriel.ramos@gmail.com" class="highlight">larsgabriel.ramos@gmail.com</a></li>
+      <li>📞 Contact Number: <span class="highlight">09159803380</span></li>
+      <li>📘 Facebook: <a href="http://facebook.com/larsgabriel.ramos.3" target="_blank" class="highlight">My Facebook</a></li>
+      <li>📍 Location: Philippines</li>
+    </ul>
+    <p style="text-align:center; margin-top:20px; font-weight:bold;">© 2025 Lars Gabriel Ramos - Portfolio</p>
+  </section>
+
+  <footer>
+    © 2025 Lars Gabriel Ramos - Portfolio
+  </footer>
+
+</body>
+</html>

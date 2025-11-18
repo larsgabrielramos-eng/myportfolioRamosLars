@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects - Lars Gabriel Ramos</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #01020a;
+      color: #0ff;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 50px 50px;
+      background-image: linear-gradient(rgba(0,255,255,0.15) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,255,255,0.15) 1px, transparent 1px);
+      animation: moveGrid 12s linear infinite;
+      z-index: -5;
+    }
+
+    @keyframes moveGrid {
+      from { background-position: 0 0; }
+      to { background-position: 0 50px; }
+    }
+
+    header {
+      padding: 60px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 15px cyan, 0 0 30px #0ff;
+      margin-bottom: 10px;
+    }
+
+    p { font-size: 1.2rem; text-shadow: 0 0 10px #0ff; }
+
+    nav {
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      padding:15px 0;
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    nav a {
+      color:#0ff; 
+      text-decoration:none; 
+      font-weight:bold; 
+      font-size:1.1rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover { color: #fff; transform: scale(1.1); }
+
+    section {
+      background: rgba(0,0,0,0.6);
+      margin: 40px auto;
+      padding: 40px;
+      width: 85%;
+      max-width: 1000px;
+      border-radius: 25px;
+      border: 1px solid rgba(0,255,255,0.3);
+      box-shadow: 0px 8px 18px rgba(0,255,255,0.2);
+      transition: 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 12px 25px rgba(0,255,255,0.4);
+    }
+
+    h2 { color: #0ff; border-left: 6px solid #0ff; padding-left: 12px; font-size: 2rem; margin-bottom: 25px; }
+
+    .folder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    .folder {
+      background: rgba(0,255,255,0.2);
+      border: 1px solid #0ff;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 3px 10px rgba(0,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      word-wrap: break-word;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .folder:hover {
+      background: rgba(0,255,255,0.4);
+      box-shadow: 0 0 15px cyan;
+      transform: scale(1.05);
+    }
+
+    .back-button {
+      grid-column: 1 / -1;
+      text-align: center;
+    }
+
+    .back-button button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: #0ff;
+      color: #01020a;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,255,255,0.2);
+      transition: 0.3s;
+    }
+
+    .back-button button:hover {
+      background: cyan;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.8);
+      font-weight: bold;
+      color: #0ff;
+      border-top: 3px solid #0ff;
+      border-radius: 30px 30px 0 0;
+      margin-top: 60px;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 200;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: 5% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 700px;
+      background: rgba(0,0,0,0.8);
+      border-radius: 15px;
+      color: #0ff;
+      text-align: center;
+    }
+
+    .close {
+      color: #0ff;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover { color: cyan; }
+
+    .project-images img {
+      max-width: 100%;
+      margin-top: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ff;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html.html">Home</a>
+    <a href="my_projects.html">My Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>My Projects</h1>
+    <p>Click on a folder to view the project images</p>
+  </header>
+
+  <section>
+    <div class="folder-grid">
+      <div class="folder" onclick="openModal('Librarymanagementsystem')">Library Management System</div>
+      <div class="folder" onclick="openModal('PersonalPortfolioWebsite')">Personal Portfolio Website</div>
+      <div class="folder" onclick="openModal('ContactManagementSystem')">Contact Management System</div>
+      <div class="folder" onclick="openModal('LoopsAndIterations')">Loops and Iterations</div>
+      <div class="folder" onclick="openModal('JavaCalculator')">Java Calculator</div>
+      <div class="folder" onclick="openModal('TicTacToeJavaGame')">Tic Tac Toe Java Game</div>
+      <div class="back-button"><button onclick="location.href='index.html.html'">Back to Portfolio</button></div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <div class="project-images" id="projectImages"></div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Lars Gabriel Ramos - Portfolio
+  </footer>
+
+  <script>
+    const projectData = {
+      'Librarymanagementsystem': ['Screenshot 2025-11-18 170219.png', 'Screenshot 2025-11-18 170237.png'],
+      'PersonalPortfolioWebsite': ['Screenshot 2025-11-18 170526.png', 'Screenshot 2025-11-18 170551.png'],
+      'ContactManagementSystem': ['Screenshot 2025-11-18 170810.png', 'Screenshot 2025-11-18 170753.png'],
+      'LoopsAndIterations': ['Screenshot 2025-11-18 171147.png','Screenshot 2025-11-18 171213.png'],
+      'JavaCalculator': ['Screenshot 2025-11-18 171642.png', 'Screenshot 2025-11-18 171650.png'],
+      'TicTacToeJavaGame': ['Screenshot 2025-11-18 172008.png', 'Screenshot 2025-11-18 172018.png']
+    };
+
+    function openModal(projectName) {
+      document.getElementById('projectModal').style.display = 'block';
+      document.getElementById('modalTitle').innerText = projectName.replace(/([A-Z])/g, ' $1').trim();
+      const imagesContainer = document.getElementById('projectImages');
+      imagesContainer.innerHTML = '';
+      projectData[projectName].forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        imagesContainer.appendChild(img);
+      });
+    }
+
+    function closeModal() {
+      document.getElementById('projectModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('projectModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+</html>
