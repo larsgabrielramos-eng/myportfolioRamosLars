@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lars Gabriel Ramos - Portfolio</title>
+
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -22,8 +23,9 @@
       width: 100%;
       height: 100%;
       background-size: 50px 50px;
-      background-image: linear-gradient(rgba(0,255,255,0.15) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(0,255,255,0.15) 1px, transparent 1px);
+      background-image:
+        linear-gradient(rgba(0,255,255,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,0.15) 1px, transparent 1px);
       animation: moveGrid 12s linear infinite;
       z-index: -5;
     }
@@ -47,26 +49,26 @@
       text-shadow: 0 0 15px cyan, 0 0 30px #0ff;
     }
 
-    p { 
+    p {
       font-size: 1.2rem;
       text-shadow: 0 0 10px #0ff;
     }
 
     nav {
-      display:flex;
-      justify-content:center;
-      gap:40px;
-      padding:15px 0;
-      position:sticky;
-      top:0;
-      z-index:100;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
-      color:#0ff; 
-      text-decoration:none; 
-      font-weight:bold; 
-      font-size:1.1rem;
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
       transition: 0.3s;
     }
 
@@ -124,22 +126,22 @@
     }
 
     button {
-      padding: 12px 25px; 
-      font-size:1rem; 
-      border:none; 
-      border-radius:12px; 
-      cursor:pointer; 
-      background: rgba(0,255,255,0.9); 
-      color:#01020a; 
-      box-shadow:0 3px 8px rgba(0,255,255,0.3);
-      transition:0.3s;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: rgba(0,255,255,0.9);
+      color: #01020a;
+      box-shadow: 0 3px 8px rgba(0,255,255,0.3);
+      transition: 0.3s;
       margin: 10px 5px;
     }
 
     button:hover {
       background: cyan;
       transform: scale(1.05);
-      box-shadow:0 0 20px cyan;
+      box-shadow: 0 0 20px cyan;
     }
 
     .top-buttons {
@@ -171,7 +173,7 @@
     .return-btn:hover {
       background: cyan;
       transform: scale(1.05);
-      box-shadow:0 0 20px cyan;
+      box-shadow: 0 0 20px cyan;
     }
 
     .view-projects-btn {
@@ -193,13 +195,221 @@
       box-shadow: 0 0 15px cyan;
     }
 
+    /* ================================
+       AI CHATBOT
+       ================================ */
+
+    .chatbot-button {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: rgba(0,255,255,0.95);
+      color: #01020a;
+      border: 2px solid cyan;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow:
+        0 0 10px cyan,
+        0 0 25px rgba(0,255,255,0.7);
+      margin: 0;
+      padding: 0;
+      transition: 0.3s;
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.1);
+      box-shadow:
+        0 0 15px cyan,
+        0 0 40px rgba(0,255,255,0.9);
+    }
+
+    .chatbot-container {
+      position: fixed;
+      right: 25px;
+      bottom: 100px;
+      width: 360px;
+      height: 500px;
+      background: rgba(1,2,10,0.98);
+      border: 2px solid #0ff;
+      border-radius: 20px;
+      box-shadow:
+        0 0 20px rgba(0,255,255,0.5),
+        0 0 50px rgba(0,255,255,0.2);
+      z-index: 9998;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chatbot-header {
+      background: rgba(0,255,255,0.12);
+      border-bottom: 1px solid rgba(0,255,255,0.5);
+      padding: 15px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chatbot-header h3 {
+      margin: 0;
+      color: #0ff;
+      text-shadow: 0 0 10px cyan;
+      font-size: 1.2rem;
+    }
+
+    .chatbot-status {
+      font-size: 0.75rem;
+      color: #00ff88;
+      text-shadow: 0 0 8px #00ff88;
+    }
+
+    .chatbot-close {
+      color: #0ff;
+      font-size: 28px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .chatbot-close:hover {
+      color: white;
+      transform: scale(1.2);
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .bot-message,
+    .user-message {
+      max-width: 85%;
+      padding: 11px 14px;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+
+    .bot-message {
+      align-self: flex-start;
+      background: rgba(0,255,255,0.10);
+      border: 1px solid rgba(0,255,255,0.35);
+      color: #dfffff;
+      box-shadow: 0 0 8px rgba(0,255,255,0.12);
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background: rgba(0,255,255,0.85);
+      color: #01020a;
+      font-weight: bold;
+    }
+
+    .typing {
+      color: #0ff;
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    .chatbot-input-area {
+      display: flex;
+      padding: 12px;
+      gap: 8px;
+      border-top: 1px solid rgba(0,255,255,0.4);
+      background: rgba(0,0,0,0.5);
+    }
+
+    .chatbot-input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,255,255,0.6);
+      outline: none;
+      background: #020611;
+      color: #0ff;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .chatbot-input::placeholder {
+      color: rgba(0,255,255,0.5);
+    }
+
+    .chatbot-send {
+      width: 48px;
+      height: 45px;
+      padding: 0;
+      margin: 0;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+
+    /* Mobile chatbot */
+
+    @media (max-width: 500px) {
+
+      .chatbot-container {
+        right: 10px;
+        bottom: 90px;
+        width: calc(100% - 20px);
+        height: 500px;
+      }
+
+      .chatbot-button {
+        right: 15px;
+        bottom: 15px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      nav {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      section {
+        width: 80%;
+        padding: 25px;
+      }
+
+      .return-btn {
+        position: relative;
+        top: 10px;
+        left: 10px;
+      }
+
+      .top-buttons {
+        position: relative;
+        top: 10px;
+        right: 10px;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
   <!-- Return Button -->
-  <button class="return-btn" onclick="window.location.href='welcome.html.html'">Return to Welcome Page</button>
+  <button class="return-btn" onclick="window.location.href='welcome.html.html'">
+    Return to Welcome Page
+  </button>
 
+  <!-- Navigation -->
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -209,41 +419,83 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <!-- Header -->
   <header>
+
     <div class="top-buttons">
-      <a href="Lars_Gabriel_Ramos_Resume.pdf" download><button>Download Resume</button></a>
+      <a href="Lars_Gabriel_Ramos_Resume.pdf" download>
+        <button>Download Resume</button>
+      </a>
     </div>
-    <img src="7d2634c1-48af-4cef-8049-98326315a302.jpg" alt="Lars Gabriel Ramos Photo" style="width:250px;height:250px;border-radius:20px;border:5px solid #0ff;box-shadow:0 8px 25px rgba(0,255,255,0.5);margin-bottom:25px;object-fit:cover;">
+
+    <img
+      src="7d2634c1-48af-4cef-8049-98326315a302.jpg"
+      alt="Lars Gabriel Ramos Photo"
+      style="width:250px;height:250px;border-radius:20px;border:5px solid #0ff;box-shadow:0 8px 25px rgba(0,255,255,0.5);margin-bottom:25px;object-fit:cover;"
+    >
+
     <h1>Lars Gabriel Ramos</h1>
-    <p>Welcome to my <span class="highlight">creative portfolio</span></p>
+
+    <p>
+      Welcome to my
+      <span class="highlight">creative portfolio</span>
+    </p>
+
   </header>
 
   <!-- About Section -->
   <section id="about">
+
     <h2>About Me</h2>
-    <p>Hello! My name is <span class="highlight">Lars Gabriel Ramos</span>. I enjoy playing video games, basketball, and coding is my hobby. I love learning new programming concepts and working on creative projects. I am passionate about technology and enjoy solving problems with code. I dedicate time every day to improve my coding skills. I am a quick learner and always seek new challenges. I also enjoy collaborating with others on projects to gain experience. My goal is to become a professional software developer. I believe that persistence and curiosity are keys to success. I am excited to continue growing my skills and making a positive impact with my projects.</p>
+
+    <p>
+      Hello! My name is
+      <span class="highlight">Lars Gabriel Ramos</span>.
+      I enjoy playing video games, basketball, and coding is my hobby.
+      I love learning new programming concepts and working on creative projects.
+      I am passionate about technology and enjoy solving problems with code.
+      I dedicate time every day to improve my coding skills.
+      I am a quick learner and always seek new challenges.
+      I also enjoy collaborating with others on projects to gain experience.
+      My goal is to become a professional software developer.
+      I believe that persistence and curiosity are keys to success.
+      I am excited to continue growing my skills and making a positive impact
+      with my projects.
+    </p>
+
   </section>
 
   <!-- Skills Section -->
   <section id="skills">
+
     <h2>Skills</h2>
+
     <ul>
       <li>Basic Java programming</li>
       <li>Basic HTML and web design</li>
       <li>Basic C# programming</li>
       <li>Basic Python coding</li>
     </ul>
+
   </section>
 
   <!-- Experience Section -->
   <section id="experience">
+
     <h2>Experience</h2>
-    <p>I have experience in basic coding using Java, HTML, C#, and Python. I can create simple programs, applications, and websites.</p>
+
+    <p>
+      I have experience in basic coding using Java, HTML, C#, and Python.
+      I can create simple programs, applications, and websites.
+    </p>
+
   </section>
 
   <!-- Achievements Section -->
   <section id="achievements">
+
     <h2>Achievements</h2>
+
     <ul>
       <li>High School Graduate</li>
       <li>Senior High School Graduate (STEM) with Honors</li>
@@ -251,12 +503,20 @@
       <li>Junior Java Programming Competition (2022)</li>
       <li>Top Performer in Intro to Programming Bootcamp</li>
     </ul>
+
   </section>
 
   <!-- Projects Section -->
   <section id="projects">
+
     <h2>Projects</h2>
-    <button class="view-projects-btn" onclick="window.location.href='project.html.html'">View Sample Projects</button>
+
+    <button
+      class="view-projects-btn"
+      onclick="window.location.href='project.html.html'">
+      View Sample Projects
+    </button>
+
     <ul>
       <li>Library Management System</li>
       <li>Personal Portfolio Website</li>
@@ -265,23 +525,854 @@
       <li>Java Calculator</li>
       <li>Tic Tac Toe Java Game</li>
     </ul>
+
   </section>
 
   <!-- Contact Section -->
   <section id="contact">
+
     <h2>Contact Me</h2>
+
     <ul>
-      <li>📧 Email: <a href="mailto:larsgabriel.ramos@gmail.com" class="highlight">larsgabriel.ramos@gmail.com</a></li>
-      <li>📞 Contact Number: <span class="highlight">09159803380</span></li>
-      <li>📘 Facebook: <a href="http://facebook.com/larsgabriel.ramos.3" target="_blank" class="highlight">My Facebook</a></li>
-      <li>📍 Location: Philippines</li>
+      <li>
+        📧 Email:
+        <a
+          href="mailto:larsgabriel.ramos@gmail.com"
+          class="highlight">
+          larsgabriel.ramos@gmail.com
+        </a>
+      </li>
+
+      <li>
+        📞 Contact Number:
+        <span class="highlight">09159803380</span>
+      </li>
+
+      <li>
+        📘 Facebook:
+        <a
+          href="http://facebook.com/larsgabriel.ramos.3"
+          target="_blank"
+          class="highlight">
+          My Facebook
+        </a>
+      </li>
+
+      <li>
+        📍 Location: Philippines
+      </li>
     </ul>
-    <p style="text-align:center; margin-top:20px; font-weight:bold;">© 2025 Lars Gabriel Ramos - Portfolio</p>
+
+    <p style="text-align:center; margin-top:20px; font-weight:bold;">
+      © 2025 Lars Gabriel Ramos - Portfolio
+    </p>
+
   </section>
 
   <footer>
     © 2025 Lars Gabriel Ramos - Portfolio
   </footer>
+
+
+  <!-- =========================================
+       AI CHATBOT BUTTON
+       ========================================= -->
+
+  <button
+    class="chatbot-button"
+    onclick="toggleChatbot()"
+    title="Ask my AI Assistant">
+    🤖
+  </button>
+
+
+  <!-- =========================================
+       AI CHATBOT WINDOW
+       ========================================= -->
+
+  <div class="chatbot-container" id="chatbot">
+
+    <div class="chatbot-header">
+
+      <div>
+        <h3>Portfolio AI</h3>
+        <span class="chatbot-status">● Online</span>
+      </div>
+
+      <span
+        class="chatbot-close"
+        onclick="toggleChatbot()">
+        &times;
+      </span>
+
+    </div>
+
+
+    <div class="chatbot-messages" id="chatbotMessages">
+
+      <div class="bot-message">
+
+        Hi! I'm Lars' Portfolio AI 🤖
+
+        <br><br>
+
+        You can ask me about Lars, his skills, education,
+        projects, achievements, experience, or this portfolio.
+
+        <br><br>
+
+        <b>Try asking:</b>
+
+        <br>
+        • What are Lars' skills?
+        <br>
+        • What projects does he have?
+        <br>
+        • Where does he study?
+        <br>
+        • What programming languages does he know?
+        <br>
+        • Tell me about Lars.
+        <br>
+        • What are his achievements?
+
+      </div>
+
+    </div>
+
+
+    <div class="chatbot-input-area">
+
+      <input
+        type="text"
+        id="chatbotInput"
+        class="chatbot-input"
+        placeholder="Ask me something..."
+        autocomplete="off"
+        onkeypress="handleChatKey(event)"
+      >
+
+      <button
+        class="chatbot-send"
+        onclick="sendMessage()">
+        ➤
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       AI CHATBOT JAVASCRIPT
+       ========================================= -->
+
+  <script>
+
+    /*
+      ==========================================
+      PORTFOLIO KNOWLEDGE BASE
+      ==========================================
+    */
+
+    const portfolioKnowledge = [
+
+      {
+        keywords: [
+          "hello",
+          "hi",
+          "hey",
+          "good morning",
+          "good afternoon",
+          "good evening"
+        ],
+
+        answer:
+          "Hello! 👋 I'm Lars' Portfolio AI. I can tell you about Lars, his skills, projects, achievements, experience, and portfolio."
+      },
+
+
+      {
+        keywords: [
+          "who is lars",
+          "who is lars gabriel",
+          "about lars",
+          "tell me about lars",
+          "lars",
+          "about"
+        ],
+
+        answer:
+          "Lars Gabriel Ramos is a BSIT student who is passionate about technology, programming, web development, and creating software projects. He enjoys coding, playing video games, and basketball. His goal is to become a professional software developer."
+      },
+
+
+      {
+        keywords: [
+          "skills",
+          "skill",
+          "lars skills",
+          "programming skills",
+          "technical skills",
+          "what can lars do"
+        ],
+
+        answer:
+          "Lars has basic skills in Java programming, HTML and web design, C# programming, and Python coding. He also enjoys learning new programming concepts and developing simple applications and websites."
+      },
+
+
+      {
+        keywords: [
+          "java",
+          "java programming",
+          "does lars know java"
+        ],
+
+        answer:
+          "Yes. Lars has basic Java programming experience. One of his projects is a Java Calculator, and he also created a Tic Tac Toe Java Game."
+      },
+
+
+      {
+        keywords: [
+          "html",
+          "css",
+          "web design",
+          "website",
+          "web development"
+        ],
+
+        answer:
+          "Lars has basic HTML and web design skills. He created this personal portfolio website using HTML, CSS, and JavaScript concepts."
+      },
+
+
+      {
+        keywords: [
+          "c#",
+          "c sharp",
+          "csharp"
+        ],
+
+        answer:
+          "Lars has basic C# programming experience and has used it to create simple programming projects."
+      },
+
+
+      {
+        keywords: [
+          "python",
+          "python coding"
+        ],
+
+        answer:
+          "Lars has basic Python coding experience. He also participated in a Python coding contest in 2022."
+      },
+
+
+      {
+        keywords: [
+          "projects",
+          "project",
+          "what projects",
+          "lars projects",
+          "portfolio projects"
+        ],
+
+        answer:
+          "Lars has several sample projects including a Library Management System, Personal Portfolio Website, Contact Management System, Loops and Iterations, Java Calculator, and Tic Tac Toe Java Game."
+      },
+
+
+      {
+        keywords: [
+          "library",
+          "library management",
+          "library management system"
+        ],
+
+        answer:
+          "The Library Management System is one of Lars' programming projects. It is designed to manage library-related activities and demonstrates his programming and system development skills."
+      },
+
+
+      {
+        keywords: [
+          "portfolio",
+          "personal portfolio",
+          "portfolio website"
+        ],
+
+        answer:
+          "This Personal Portfolio Website showcases Lars' background, skills, experience, achievements, projects, and contact information. It uses a futuristic cyan and dark-themed design."
+      },
+
+
+      {
+        keywords: [
+          "contact management",
+          "contact management system",
+          "contacts"
+        ],
+
+        answer:
+          "The Contact Management System is one of Lars' sample programming projects. It demonstrates his ability to create applications for managing contact information."
+      },
+
+
+      {
+        keywords: [
+          "loops",
+          "iterations",
+          "loops and iterations"
+        ],
+
+        answer:
+          "Loops and Iterations is one of Lars' programming projects. It focuses on programming concepts involving loops and repeated operations."
+      },
+
+
+      {
+        keywords: [
+          "calculator",
+          "java calculator"
+        ],
+
+        answer:
+          "The Java Calculator is one of Lars' sample projects. It demonstrates his ability to create a basic calculator application using Java."
+      },
+
+
+      {
+        keywords: [
+          "tic tac toe",
+          "tictactoe",
+          "tic tac toe game"
+        ],
+
+        answer:
+          "The Tic Tac Toe Java Game is one of Lars' programming projects. It is a simple game developed using Java programming concepts."
+      },
+
+
+      {
+        keywords: [
+          "experience",
+          "work experience",
+          "coding experience"
+        ],
+
+        answer:
+          "Lars has experience with basic coding using Java, HTML, C#, and Python. He can create simple programs, applications, and websites."
+      },
+
+
+      {
+        keywords: [
+          "achievements",
+          "achievement",
+          "awards",
+          "accomplishments"
+        ],
+
+        answer:
+          "Lars' achievements include graduating high school, graduating Senior High School under STEM with Honors, winning a Python coding contest in 2022, participating in a Junior Java Programming Competition in 2022, and being a Top Performer in an Intro to Programming Bootcamp."
+      },
+
+
+      {
+        keywords: [
+          "education",
+          "school",
+          "study",
+          "studies",
+          "college"
+        ],
+
+        answer:
+          "Lars is a BSIT student at Philippine Christian University. His education focuses on information technology, programming, and technology-related skills."
+      },
+
+
+      {
+        keywords: [
+          "pcu",
+          "philippine christian university"
+        ],
+
+        answer:
+          "Lars is studying Bachelor of Science in Information Technology at Philippine Christian University (PCU)."
+      },
+
+
+      {
+        keywords: [
+          "goal",
+          "career",
+          "future",
+          "dream job"
+        ],
+
+        answer:
+          "Lars' goal is to become a professional software developer. He is interested in technology, programming, web development, and continuously improving his technical skills."
+      },
+
+
+      {
+        keywords: [
+          "hobbies",
+          "hobby",
+          "free time",
+          "what does lars like"
+        ],
+
+        answer:
+          "Lars enjoys playing video games, basketball, and coding. He also enjoys learning new programming concepts and working on creative projects."
+      },
+
+
+      {
+        keywords: [
+          "contact",
+          "email",
+          "email address",
+          "how to contact lars"
+        ],
+
+        answer:
+          "You can contact Lars through his email at larsgabriel.ramos@gmail.com. You can also find his Facebook link in the Contact section of this portfolio."
+      },
+
+
+      {
+        keywords: [
+          "facebook",
+          "social media"
+        ],
+
+        answer:
+          "Lars' Facebook profile can be accessed through the Facebook link in the Contact Me section of this portfolio."
+      },
+
+
+      {
+        keywords: [
+          "resume",
+          "cv",
+          "curriculum vitae"
+        ],
+
+        answer:
+          "You can download Lars' resume by clicking the 'Download Resume' button near the top of the portfolio."
+      },
+
+
+      {
+        keywords: [
+          "thank you",
+          "thanks",
+          "thank"
+        ],
+
+        answer:
+          "You're welcome! 😊 Feel free to ask me anything about Lars' portfolio."
+      }
+
+    ];
+
+
+    /*
+      ==========================================
+      NORMALIZE TEXT
+      ==========================================
+    */
+
+    function normalizeText(text) {
+
+      return text
+        .toLowerCase()
+        .replace(/[^\w\s]/g, "")
+        .trim();
+
+    }
+
+
+    /*
+      ==========================================
+      LEVENSHTEIN DISTANCE
+      Used for typo detection
+      ==========================================
+    */
+
+    function levenshteinDistance(a, b) {
+
+      const matrix = [];
+
+      for (let i = 0; i <= b.length; i++) {
+
+        matrix[i] = [i];
+
+      }
+
+      for (let j = 0; j <= a.length; j++) {
+
+        matrix[0][j] = j;
+
+      }
+
+      for (let i = 1; i <= b.length; i++) {
+
+        for (let j = 1; j <= a.length; j++) {
+
+          if (b.charAt(i - 1) === a.charAt(j - 1)) {
+
+            matrix[i][j] = matrix[i - 1][j - 1];
+
+          } else {
+
+            matrix[i][j] = Math.min(
+
+              matrix[i - 1][j] + 1,
+
+              matrix[i][j - 1] + 1,
+
+              matrix[i - 1][j - 1] + 1
+
+            );
+
+          }
+
+        }
+
+      }
+
+      return matrix[b.length][a.length];
+
+    }
+
+
+    /*
+      ==========================================
+      SIMILARITY
+      ==========================================
+    */
+
+    function similarity(word1, word2) {
+
+      if (!word1 || !word2) {
+        return 0;
+      }
+
+      const distance =
+        levenshteinDistance(word1, word2);
+
+      const maxLength =
+        Math.max(word1.length, word2.length);
+
+      return 1 - distance / maxLength;
+
+    }
+
+
+    /*
+      ==========================================
+      FIND BEST ANSWER
+      ==========================================
+    */
+
+    function findBestAnswer(userInput) {
+
+      const input =
+        normalizeText(userInput);
+
+      const words =
+        input.split(/\s+/);
+
+      let bestMatch = null;
+
+      let highestScore = 0;
+
+
+      portfolioKnowledge.forEach(item => {
+
+        let score = 0;
+
+
+        item.keywords.forEach(keyword => {
+
+          const normalizedKeyword =
+            normalizeText(keyword);
+
+
+          /*
+            Exact phrase match
+          */
+
+          if (input.includes(normalizedKeyword)) {
+
+            score += 10;
+
+          }
+
+
+          /*
+            Typo detection
+          */
+
+          const keywordWords =
+            normalizedKeyword.split(/\s+/);
+
+
+          keywordWords.forEach(keywordWord => {
+
+            words.forEach(userWord => {
+
+              const match =
+                similarity(userWord, keywordWord);
+
+
+              if (match >= 0.75) {
+
+                score += match * 3;
+
+              }
+
+            });
+
+          });
+
+        });
+
+
+        if (score > highestScore) {
+
+          highestScore = score;
+
+          bestMatch = item;
+
+        }
+
+      });
+
+
+      if (bestMatch && highestScore >= 2) {
+
+        return bestMatch.answer;
+
+      }
+
+
+      return `
+        I'm not completely sure what you mean. 🤔
+
+        <br><br>
+
+        You can ask me about:
+
+        <br>• Lars
+        <br>• Skills
+        <br>• Education
+        <br>• Experience
+        <br>• Achievements
+        <br>• Projects
+        <br>• Hobbies
+        <br>• Resume
+        <br>• Contact information
+
+        <br><br>
+
+        Try asking something like:
+        <br><b>"what are lars skils"</b>
+        <br><b>"wat projcts does he have"</b>
+      `;
+
+    }
+
+
+    /*
+      ==========================================
+      OPEN / CLOSE CHATBOT
+      ==========================================
+    */
+
+    function toggleChatbot() {
+
+      const chatbot =
+        document.getElementById("chatbot");
+
+      if (chatbot.style.display === "flex") {
+
+        chatbot.style.display = "none";
+
+      } else {
+
+        chatbot.style.display = "flex";
+
+        document
+          .getElementById("chatbotInput")
+          .focus();
+
+      }
+
+    }
+
+
+    /*
+      ==========================================
+      ADD MESSAGE
+      ==========================================
+    */
+
+    function addMessage(message, sender) {
+
+      const messages =
+        document.getElementById("chatbotMessages");
+
+      const messageElement =
+        document.createElement("div");
+
+
+      if (sender === "user") {
+
+        messageElement.className =
+          "user-message";
+
+      } else {
+
+        messageElement.className =
+          "bot-message";
+
+      }
+
+
+      messageElement.innerHTML = message;
+
+      messages.appendChild(messageElement);
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+    }
+
+
+    /*
+      ==========================================
+      SEND MESSAGE
+      ==========================================
+    */
+
+    function sendMessage() {
+
+      const input =
+        document.getElementById("chatbotInput");
+
+      const userMessage =
+        input.value.trim();
+
+
+      if (!userMessage) {
+
+        return;
+
+      }
+
+
+      /*
+        Display user message
+      */
+
+      addMessage(
+        userMessage,
+        "user"
+      );
+
+
+      input.value = "";
+
+
+      /*
+        Show thinking message
+      */
+
+      const messages =
+        document.getElementById("chatbotMessages");
+
+
+      const typing =
+        document.createElement("div");
+
+
+      typing.className =
+        "bot-message typing";
+
+
+      typing.id =
+        "typingIndicator";
+
+
+      typing.innerText =
+        "Portfolio AI is thinking...";
+
+
+      messages.appendChild(typing);
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      /*
+        Generate response
+      */
+
+      setTimeout(() => {
+
+        const typingIndicator =
+          document.getElementById(
+            "typingIndicator"
+          );
+
+
+        if (typingIndicator) {
+
+          typingIndicator.remove();
+
+        }
+
+
+        const response =
+          findBestAnswer(userMessage);
+
+
+        addMessage(
+          response,
+          "bot"
+        );
+
+      }, 500);
+
+    }
+
+
+    /*
+      ==========================================
+      ENTER KEY
+      ==========================================
+    */
+
+    function handleChatKey(event) {
+
+      if (event.key === "Enter") {
+
+        sendMessage();
+
+      }
+
+    }
+
+  </script>
 
 </body>
 </html>
