@@ -873,7 +873,7 @@
   <button
     class="chatbot-button"
     onclick="toggleChatbot()"
-    title="Ask my AI Assistant">
+    title="Ask Lars Personal AI Chatbot">
 
     🤖
 
@@ -896,7 +896,7 @@
       <div>
 
         <h3>
-          Portfolio AI
+          Lars Personal AI Chatbot
         </h3>
 
         <span class="chatbot-status">
@@ -926,14 +926,12 @@
 
       <div class="bot-message">
 
-        Hi! I'm Lars' Portfolio AI 🤖
+        Hi! I'm Lars' Lars Personal AI Chatbot 🤖
 
         <br><br>
 
-        You can ask me about Lars, his
-        skills, education, projects,
-        experience, or anything about
-        this portfolio.
+        I can answer questions about information
+        included in Lars Gabriel Ramos' portfolio.
 
         <br><br>
 
@@ -942,14 +940,10 @@
         <br>
 
         • What are Lars' skills?
-
-        <br>
-
-        • What projects does he have?
-
-        <br>
-
-        • Where does he study?
+        <br>• What projects does he have?
+        <br>• Where does he study?
+        <br>• What programming languages does he know?
+        <br>• Tell me about Lars.
 
       </div>
 
@@ -1140,625 +1134,446 @@
 
     /* =========================================
        PORTFOLIO AI KNOWLEDGE BASE
+       Same concept as the main portfolio AI
     ========================================= */
 
     const portfolioKnowledge = [
 
-
-      /* ABOUT */
-
+      /* GREETING */
       {
-
         keywords: [
-
-          "name",
-
-          "who are you",
-
-          "who is lars",
-
-          "about lars",
-
-          "about"
-
+          "hello", "hi", "hey", "good morning",
+          "good afternoon", "good evening"
         ],
-
         answer:
+          "Hello! 👋 I'm Lars Personal AI Chatbot. I can tell you about Lars, his skills, education, projects, achievements, experience, hobbies, career goals, and contact information."
+      },
 
+      /* ABOUT LARS */
+      {
+        keywords: [
+          "who is lars", "who is lars gabriel",
+          "about lars", "tell me about lars",
+          "name", "who are you", "about"
+        ],
+        answer:
           "Lars Gabriel Ramos is a 4th-year Bachelor of Science in Information Technology (BSIT) student at Philippine Christian University. He is interested in IT Support, Cybersecurity, Data Analytics, and Web Development."
-
       },
-
-
-      /* EDUCATION */
-
-      {
-
-        keywords: [
-
-          "education",
-
-          "school",
-
-          "college",
-
-          "university",
-
-          "study",
-
-          "studying"
-
-        ],
-
-        answer:
-
-          "Lars is currently studying BSIT at Philippine Christian University (PCU). His educational background also includes Jose Rizal University, St. Paul Quezon City, Sto. Niño Parochial School, Quezon City Academy, and AMA University."
-
-      },
-
 
       /* SKILLS */
-
       {
-
         keywords: [
-
-          "skills",
-
-          "skill",
-
-          "programming",
-
-          "languages",
-
-          "technology",
-
-          "technologies"
-
+          "skills", "skill", "lars skills",
+          "programming skills", "technical skills",
+          "programming", "languages", "technology",
+          "technologies", "what can lars do"
         ],
-
         answer:
-
           "Lars has experience with HTML, CSS, Java, C#, SQL, JavaScript, database management, web development, systems analysis and design, and data mining."
-
       },
 
+      /* JAVA */
+      {
+        keywords: [
+          "java", "java programming",
+          "does lars know java", "java language"
+        ],
+        answer:
+          "Yes. Lars has Java programming experience. His projects include a Java Calculator and a Tic Tac Toe Java Game."
+      },
+
+      /* HTML / WEB */
+      {
+        keywords: [
+          "html", "css", "web design",
+          "website", "web development"
+        ],
+        answer:
+          "Lars has experience with HTML, CSS, and web development. This personal portfolio website is built using HTML, CSS, and JavaScript."
+      },
+
+      /* C# */
+      {
+        keywords: ["c#", "c sharp", "csharp"],
+        answer:
+          "Lars has experience with C# programming and has used it for programming projects."
+      },
+
+      /* PYTHON */
+      {
+        keywords: ["python", "python coding", "python programming"],
+        answer:
+          "Lars has basic Python coding experience and participated in a Python coding contest in 2022."
+      },
 
       /* PROJECTS */
-
       {
-
         keywords: [
-
-          "projects",
-
-          "project",
-
-          "portfolio",
-
-          "works",
-
-          "work"
-
+          "projects", "project", "portfolio projects",
+          "works", "what has lars made"
         ],
-
         answer:
-
           "Lars' projects include a Library Management System, Personal Portfolio Website, Contact Management System, Loops and Iterations exercises, Java Calculator, and a Tic Tac Toe Java Game."
-
       },
-
 
       /* LIBRARY */
-
       {
-
         keywords: [
-
-          "library",
-
-          "library management",
-
-          "library system"
-
+          "library", "library management",
+          "library management system", "library system"
         ],
-
         answer:
-
-          "The Library Management System is a project focused on managing library operations such as books, student records, borrowing and returning books, bookmarks, donations, due dates, and overdue penalties."
-
+          "The Library Management System is focused on managing library operations such as books, student records, borrowing and returning books, bookmarks, donations, due dates, and overdue penalties."
       },
-
 
       /* PORTFOLIO */
-
       {
-
         keywords: [
-
-          "portfolio website",
-
-          "personal portfolio",
-
-          "website"
-
+          "portfolio", "portfolio website",
+          "personal portfolio"
         ],
-
         answer:
-
           "This Personal Portfolio Website showcases Lars' background, skills, projects, and experience. It uses HTML, CSS, and JavaScript with a futuristic cyan-themed interface."
-
       },
-
 
       /* CONTACT MANAGEMENT */
-
       {
-
         keywords: [
-
-          "contact",
-
-          "contact management"
-
+          "contact management",
+          "contact management system", "contacts"
         ],
-
         answer:
-
           "The Contact Management System is one of Lars' programming projects designed to manage contact information."
-
       },
-
-
-      /* JAVA CALCULATOR */
-
-      {
-
-        keywords: [
-
-          "java calculator",
-
-          "calculator"
-
-        ],
-
-        answer:
-
-          "The Java Calculator is a Java programming project that demonstrates basic calculator operations and programming logic."
-
-      },
-
-
-      /* TIC TAC TOE */
-
-      {
-
-        keywords: [
-
-          "tic tac toe",
-
-          "tictactoe",
-
-          "tic tac"
-
-        ],
-
-        answer:
-
-          "The Tic Tac Toe Java Game is a Java-based game project that demonstrates programming logic, user interaction, and game mechanics."
-
-      },
-
 
       /* LOOPS */
-
       {
-
-        keywords: [
-
-          "loops",
-
-          "iterations",
-
-          "loop"
-
-        ],
-
+        keywords: ["loops", "iterations", "loops and iterations", "loop"],
         answer:
-
           "Loops and Iterations is one of Lars' programming exercises demonstrating repetition structures and programming logic."
-
       },
 
+      /* CALCULATOR */
+      {
+        keywords: ["calculator", "java calculator"],
+        answer:
+          "The Java Calculator is a Java programming project that demonstrates basic calculator operations and programming logic."
+      },
+
+      /* TIC TAC TOE */
+      {
+        keywords: [
+          "tic tac toe", "tictactoe",
+          "tic tac toe game"
+        ],
+        answer:
+          "The Tic Tac Toe Java Game is a Java-based game project that demonstrates programming logic, user interaction, and game mechanics."
+      },
+
+      /* EXPERIENCE */
+      {
+        keywords: [
+          "experience", "work experience",
+          "coding experience"
+        ],
+        answer:
+          "Lars has experience with HTML, CSS, Java, C#, SQL, JavaScript, databases, web development, systems analysis and design, and data mining. He can create programming projects, applications, and websites."
+      },
+
+      /* ACHIEVEMENTS */
+      {
+        keywords: [
+          "achievements", "achievement",
+          "awards", "accomplishments"
+        ],
+        answer:
+          "Lars' achievements include graduating high school, graduating Senior High School under STEM with Honors, winning a Python coding contest in 2022, participating in a Junior Java Programming Competition in 2022, and being a Top Performer in an Intro to Programming Bootcamp."
+      },
+
+      /* EDUCATION */
+      {
+        keywords: [
+          "education", "school", "study",
+          "studies", "college", "university",
+          "studying", "pcu",
+          "philippine christian university",
+          "where does lars study"
+        ],
+        answer:
+          "Lars is currently studying Bachelor of Science in Information Technology (BSIT) at Philippine Christian University (PCU). His educational background also includes Jose Rizal University, St. Paul Quezon City, Sto. Niño Parochial School, Quezon City Academy, and AMA University."
+      },
 
       /* CAREER */
-
       {
-
         keywords: [
-
-          "career",
-
-          "job",
-
-          "career interest",
-
-          "interested"
-
+          "goal", "career", "future",
+          "dream job", "career goal",
+          "career interest", "interested"
         ],
-
         answer:
-
-          "Lars is interested in IT Support, Help Desk, Cybersecurity, Data Analytics, and Web Development."
-
+          "Lars is interested in IT Support, Help Desk, Cybersecurity, Data Analytics, and Web Development. His goal is to continue developing his technical skills and build a professional career in the IT field."
       },
-
 
       /* OJT */
-
       {
-
         keywords: [
-
-          "ojt",
-
-          "internship",
-
-          "intern",
-
-          "experience"
-
+          "ojt", "internship", "intern",
+          "internship experience"
         ],
-
         answer:
-
           "Lars is pursuing IT-related internship experience where he can apply his skills in technology, testing, systems, databases, and IT support."
-
       },
-
 
       /* HOBBIES */
-
       {
-
         keywords: [
-
-          "hobby",
-
-          "hobbies",
-
-          "free time"
-
+          "hobbies", "hobby", "free time",
+          "what does lars like", "what does lars enjoy"
         ],
-
         answer:
-
-          "Lars enjoys online games, movies and series, basketball, and studying."
-
+          "Lars enjoys online games, movies and series, basketball, and studying. He also enjoys coding and learning new programming concepts."
       },
 
+      /* LOCATION */
+      {
+        keywords: [
+          "location", "where is lars",
+          "where is lars located", "where does lars live",
+          "lars address", "address", "adress",
+          "city", "taguig", "taguig city",
+          "where is lars from"
+        ],
+        answer:
+          "Lars Gabriel Ramos is located in Taguig City, Philippines."
+      },
 
       /* CONTACT */
-
       {
-
         keywords: [
-
-          "contact me",
-
-          "email",
-
-          "contact information"
-
+          "contact", "contact me",
+          "email", "email address",
+          "contact information", "how to contact lars",
+          "phone", "contact number"
         ],
-
         answer:
-
-          "You can use the Contact section of this portfolio to find Lars' available contact information."
-
+          "You can use the Contact section of this portfolio to find Lars' available contact information. His portfolio also contains his email, contact number, and Facebook link."
       },
 
+      /* FACEBOOK */
+      {
+        keywords: ["facebook", "social media"],
+        answer:
+          "Lars' Facebook profile can be accessed through the Facebook link in the Contact section of his portfolio."
+      },
+
+      /* RESUME */
+      {
+        keywords: ["resume", "cv", "curriculum vitae"],
+        answer:
+          "You can download Lars' resume from the Download Resume button on his main portfolio page."
+      },
 
       /* THANK YOU */
-
       {
-
-        keywords: [
-
-          "thank you",
-
-          "thanks"
-
-        ],
-
+        keywords: ["thank you", "thanks", "thank"],
         answer:
-
-          "You're welcome! Feel free to ask me anything about Lars' portfolio. 🤖"
-
-      },
-
-
-      /* GREETING */
-
-      {
-
-        keywords: [
-
-          "hello",
-
-          "hi",
-
-          "hey"
-
-        ],
-
-        answer:
-
-          "Hello! 👋 I'm Lars' Portfolio AI. Ask me about his skills, education, projects, experience, or career interests."
-
+          "You're welcome! 😊 Feel free to ask me anything about Lars' portfolio."
       }
-
     ];
 
 
     /* =========================================
-       NORMALIZE USER TEXT
+       NORMALIZE TEXT
     ========================================= */
 
     function normalizeText(text) {
-
       return text
-
         .toLowerCase()
-
         .replace(/[^\w\s]/g, "")
-
         .trim();
-
     }
 
 
     /* =========================================
        LEVENSHTEIN DISTANCE
-       
-       This is what helps the chatbot
-       understand misspelled words.
+       Used for typo detection
     ========================================= */
 
     function levenshteinDistance(a, b) {
-
       const matrix = [];
 
-
       for (let i = 0; i <= b.length; i++) {
-
         matrix[i] = [i];
-
       }
-
 
       for (let j = 0; j <= a.length; j++) {
-
         matrix[0][j] = j;
-
       }
-
 
       for (let i = 1; i <= b.length; i++) {
-
         for (let j = 1; j <= a.length; j++) {
-
-          if (
-            b.charAt(i - 1) ===
-            a.charAt(j - 1)
-          ) {
-
-            matrix[i][j] =
-              matrix[i - 1][j - 1];
-
+          if (b.charAt(i - 1) === a.charAt(j - 1)) {
+            matrix[i][j] = matrix[i - 1][j - 1];
+          } else {
+            matrix[i][j] = Math.min(
+              matrix[i - 1][j] + 1,
+              matrix[i][j - 1] + 1,
+              matrix[i - 1][j - 1] + 1
+            );
           }
-
-          else {
-
-            matrix[i][j] =
-              Math.min(
-
-                matrix[i - 1][j] + 1,
-
-                matrix[i][j - 1] + 1,
-
-                matrix[i - 1][j - 1] + 1
-
-              );
-
-          }
-
         }
-
       }
 
-
       return matrix[b.length][a.length];
-
     }
 
 
     /* =========================================
-       CALCULATE WORD SIMILARITY
+       SIMILARITY
     ========================================= */
 
     function similarity(word1, word2) {
-
       if (!word1 || !word2) {
-
         return 0;
-
       }
 
+      const distance = levenshteinDistance(word1, word2);
+      const maxLength = Math.max(word1.length, word2.length);
 
-      const distance =
-        levenshteinDistance(
-          word1,
-          word2
-        );
-
-
-      const maxLength =
-        Math.max(
-          word1.length,
-          word2.length
-        );
-
-
-      return 1 - distance / maxLength;
-
+      return maxLength === 0 ? 1 : 1 - distance / maxLength;
     }
 
 
     /* =========================================
-       FIND BEST PORTFOLIO ANSWER
+       FIND BEST ANSWER
+       Same stronger matching concept as
+       the main portfolio AI
     ========================================= */
 
     function findBestAnswer(userInput) {
+      const input = normalizeText(userInput);
 
-      const input =
-        normalizeText(userInput);
-
-
-      const words =
-        input.split(/\s+/);
-
-
-      let bestMatch = null;
-
-      let highestScore = 0;
-
-
-      portfolioKnowledge.forEach(item => {
-
-        let score = 0;
-
-
-        item.keywords.forEach(keyword => {
-
-          const normalizedKeyword =
-            normalizeText(keyword);
-
-
-          /*
-             EXACT PHRASE MATCH
-          */
-
-          if (
-            input.includes(
-              normalizedKeyword
-            )
-          ) {
-
-            score += 10;
-
-          }
-
-
-          /*
-             TYPO-TOLERANT MATCH
-          */
-
-          const keywordWords =
-            normalizedKeyword
-              .split(/\s+/);
-
-
-          keywordWords.forEach(
-            keywordWord => {
-
-              words.forEach(userWord => {
-
-                const match =
-                  similarity(
-                    userWord,
-                    keywordWord
-                  );
-
-
-                /*
-                   0.75 means approximately
-                   75% similarity.
-                */
-
-                if (match >= 0.75) {
-
-                  score +=
-                    match * 3;
-
-                }
-
-              });
-
-            });
-
-        });
-
-
-        if (score > highestScore) {
-
-          highestScore = score;
-
-          bestMatch = item;
-
-        }
-
-      });
-
-
-      /*
-         Return best answer
-      */
-
-      if (
-        bestMatch &&
-        highestScore >= 2
-      ) {
-
-        return bestMatch.answer;
-
+      if (!input) {
+        return "Please enter a question. 🤖";
       }
 
+      const words = input.split(/\s+/);
 
       /*
-         If nothing is understood
+        Ignore generic words so questions such as
+        "What are Lars' skills?" focus on "skills".
       */
+      const ignoredWords = new Set([
+        "what", "whats", "is", "the", "a", "an",
+        "my", "his", "her", "does", "do", "can",
+        "tell", "me", "about", "who", "where",
+        "how", "and", "of", "to", "in", "on",
+        "for", "lars", "please"
+      ]);
 
+      const meaningfulWords = words.filter(
+        word => word.length >= 3 && !ignoredWords.has(word)
+      );
+
+      /*
+        Priority location check prevents a question
+        about address/location from matching "about Lars".
+      */
+      const locationTerms = [
+        "address", "adress", "location",
+        "located", "taguig", "city"
+      ];
+
+      const asksLocation = meaningfulWords.some(word =>
+        locationTerms.some(term =>
+          word === term || similarity(word, term) >= 0.80
+        )
+      );
+
+      if (asksLocation) {
+        const locationItem = portfolioKnowledge.find(item =>
+          item.keywords.includes("location")
+        );
+
+        if (locationItem) {
+          return locationItem.answer;
+        }
+      }
+
+      let bestMatch = null;
+      let highestScore = 0;
+
+      portfolioKnowledge.forEach(item => {
+        let score = 0;
+
+        item.keywords.forEach(keyword => {
+          const normalizedKeyword = normalizeText(keyword);
+          const keywordWords = normalizedKeyword.split(/\s+/);
+
+          /* EXACT PHRASE MATCH */
+          if (input === normalizedKeyword) {
+            score += 20;
+          } else if (input.includes(normalizedKeyword)) {
+            score += 10;
+          }
+
+          /* FUZZY WORD MATCHING */
+          keywordWords.forEach(keywordWord => {
+            if (
+              keywordWord.length < 3 ||
+              ignoredWords.has(keywordWord)
+            ) {
+              return;
+            }
+
+            meaningfulWords.forEach(userWord => {
+              const match = similarity(userWord, keywordWord);
+
+              if (match >= 0.85) {
+                score += match * 4;
+              }
+            });
+          });
+        });
+
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = item;
+        }
+      });
+
+      /* ONLY ANSWER WHEN THERE IS A STRONG MATCH */
+      if (bestMatch && highestScore >= 5) {
+        return bestMatch.answer;
+      }
+
+      /* UNKNOWN QUESTION */
       return `
-
-        I'm not completely sure what you mean. 🤖
+        I'm sorry, but that information is not
+        stated in this portfolio. 🤖
 
         <br><br>
 
-        Try asking me about:
+        <b>Lars Personal AI Chatbot</b> can only
+        answer questions based on the information
+        stated in this portfolio.
 
-        <br>
+        <br><br>
 
-        • Lars' skills
+        <b>You can ask me about:</b>
 
-        <br>
-
-        • His projects
-
-        <br>
-
-        • His education
-
-        <br>
-
-        • His OJT / internship
-
-        <br>
-
-        • His career interests
-
+        <br>• Lars' personal information
+        <br>• Skills
+        <br>• Education
+        <br>• Experience
+        <br>• Achievements
+        <br>• Projects
+        <br>• Hobbies
+        <br>• Career goals
+        <br>• OJT / internship
+        <br>• Resume
+        <br>• Contact information
       `;
-
     }
 
 
@@ -1921,7 +1736,7 @@
 
 
       typing.innerText =
-        "Portfolio AI is thinking...";
+        "Lars Personal AI Chatbot is thinking...";
 
 
       messages.appendChild(
@@ -2000,5 +1815,7 @@
 </body>
 </html>
 
+</body>
+</html>
 </body>
 </html>
