@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
   <title>Lars Gabriel Ramos - Portfolio</title>
 
   <style>
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -23,16 +25,30 @@
       width: 100%;
       height: 100%;
       background-size: 50px 50px;
+
       background-image:
-        linear-gradient(rgba(0,255,255,0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,255,0.15) 1px, transparent 1px);
+        linear-gradient(
+          rgba(0,255,255,0.15) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0,255,255,0.15) 1px,
+          transparent 1px
+        );
+
       animation: moveGrid 12s linear infinite;
       z-index: -5;
     }
 
     @keyframes moveGrid {
-      from { background-position: 0 0; }
-      to { background-position: 0 50px; }
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 0 50px;
+      }
     }
 
     header {
@@ -46,12 +62,17 @@
       font-size: 3.5rem;
       letter-spacing: 1px;
       margin-bottom: 10px;
-      text-shadow: 0 0 15px cyan, 0 0 30px #0ff;
+
+      text-shadow:
+        0 0 15px cyan,
+        0 0 30px #0ff;
     }
 
     p {
       font-size: 1.2rem;
-      text-shadow: 0 0 10px #0ff;
+
+      text-shadow:
+        0 0 10px #0ff;
     }
 
     nav {
@@ -85,14 +106,19 @@
       max-width: 900px;
       border-radius: 25px;
       border: 1px solid rgba(0,255,255,0.3);
-      box-shadow: 0px 8px 18px rgba(0,255,255,0.2);
+
+      box-shadow:
+        0px 8px 18px rgba(0,255,255,0.2);
+
       transition: 0.3s ease;
       position: relative;
     }
 
     section:hover {
       transform: translateY(-5px);
-      box-shadow: 0px 12px 25px rgba(0,255,255,0.4);
+
+      box-shadow:
+        0px 12px 25px rgba(0,255,255,0.4);
     }
 
     h2 {
@@ -133,7 +159,10 @@
       cursor: pointer;
       background: rgba(0,255,255,0.9);
       color: #01020a;
-      box-shadow: 0 3px 8px rgba(0,255,255,0.3);
+
+      box-shadow:
+        0 3px 8px rgba(0,255,255,0.3);
+
       transition: 0.3s;
       margin: 10px 5px;
     }
@@ -141,7 +170,9 @@
     button:hover {
       background: cyan;
       transform: scale(1.05);
-      box-shadow: 0 0 20px cyan;
+
+      box-shadow:
+        0 0 20px cyan;
     }
 
     .top-buttons {
@@ -165,7 +196,10 @@
       color: #01020a;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 3px 8px rgba(0,255,255,0.3);
+
+      box-shadow:
+        0 3px 8px rgba(0,255,255,0.3);
+
       transition: 0.3s;
       z-index: 101;
     }
@@ -173,7 +207,9 @@
     .return-btn:hover {
       background: cyan;
       transform: scale(1.05);
-      box-shadow: 0 0 20px cyan;
+
+      box-shadow:
+        0 0 20px cyan;
     }
 
     .view-projects-btn {
@@ -192,12 +228,15 @@
 
     .view-projects-btn:hover {
       background: cyan;
-      box-shadow: 0 0 15px cyan;
+
+      box-shadow:
+        0 0 15px cyan;
     }
 
-    /* ================================
+
+    /* =========================================
        AI CHATBOT
-       ================================ */
+    ========================================= */
 
     .chatbot-button {
       position: fixed;
@@ -212,9 +251,11 @@
       font-size: 30px;
       cursor: pointer;
       z-index: 9999;
+
       box-shadow:
         0 0 10px cyan,
         0 0 25px rgba(0,255,255,0.7);
+
       margin: 0;
       padding: 0;
       transition: 0.3s;
@@ -222,6 +263,7 @@
 
     .chatbot-button:hover {
       transform: scale(1.1);
+
       box-shadow:
         0 0 15px cyan,
         0 0 40px rgba(0,255,255,0.9);
@@ -236,9 +278,11 @@
       background: rgba(1,2,10,0.98);
       border: 2px solid #0ff;
       border-radius: 20px;
+
       box-shadow:
         0 0 20px rgba(0,255,255,0.5),
         0 0 50px rgba(0,255,255,0.2);
+
       z-index: 9998;
       display: none;
       flex-direction: column;
@@ -257,14 +301,19 @@
     .chatbot-header h3 {
       margin: 0;
       color: #0ff;
-      text-shadow: 0 0 10px cyan;
+
+      text-shadow:
+        0 0 10px cyan;
+
       font-size: 1.2rem;
     }
 
     .chatbot-status {
       font-size: 0.75rem;
       color: #00ff88;
-      text-shadow: 0 0 8px #00ff88;
+
+      text-shadow:
+        0 0 8px #00ff88;
     }
 
     .chatbot-close {
@@ -303,7 +352,9 @@
       background: rgba(0,255,255,0.10);
       border: 1px solid rgba(0,255,255,0.35);
       color: #dfffff;
-      box-shadow: 0 0 8px rgba(0,255,255,0.12);
+
+      box-shadow:
+        0 0 8px rgba(0,255,255,0.12);
     }
 
     .user-message {
@@ -323,8 +374,12 @@
       display: flex;
       padding: 12px;
       gap: 8px;
-      border-top: 1px solid rgba(0,255,255,0.4);
-      background: rgba(0,0,0,0.5);
+
+      border-top:
+        1px solid rgba(0,255,255,0.4);
+
+      background:
+        rgba(0,0,0,0.5);
     }
 
     .chatbot-input {
@@ -340,7 +395,8 @@
     }
 
     .chatbot-input::placeholder {
-      color: rgba(0,255,255,0.5);
+      color:
+        rgba(0,255,255,0.5);
     }
 
     .chatbot-send {
@@ -352,7 +408,10 @@
       font-size: 20px;
     }
 
-    /* Mobile chatbot */
+
+    /* =========================================
+       MOBILE CHATBOT
+    ========================================= */
 
     @media (max-width: 500px) {
 
@@ -397,227 +456,482 @@
         top: 10px;
         right: 10px;
       }
+
     }
 
   </style>
 </head>
 
+
 <body>
 
-  <!-- Return Button -->
-  <button class="return-btn" onclick="window.location.href='welcome.html.html'">
+
+  <!-- =========================================
+       RETURN BUTTON
+  ========================================= -->
+
+  <button
+    class="return-btn"
+    onclick="window.location.href='welcome.html.html'">
+
     Return to Welcome Page
+
   </button>
 
-  <!-- Navigation -->
+
+  <!-- =========================================
+       NAVIGATION
+  ========================================= -->
+
   <nav>
+
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#achievements">Achievements</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+
   </nav>
 
-  <!-- Header -->
+
+  <!-- =========================================
+       HEADER
+  ========================================= -->
+
   <header>
 
     <div class="top-buttons">
-      <a href="Lars_Gabriel_Ramos_Resume.pdf" download>
-        <button>Download Resume</button>
+
+      <a
+        href="Lars_Gabriel_Ramos_Resume.pdf"
+        download>
+
+        <button>
+          Download Resume
+        </button>
+
       </a>
+
     </div>
+
 
     <img
       src="7d2634c1-48af-4cef-8049-98326315a302.jpg"
       alt="Lars Gabriel Ramos Photo"
-      style="width:250px;height:250px;border-radius:20px;border:5px solid #0ff;box-shadow:0 8px 25px rgba(0,255,255,0.5);margin-bottom:25px;object-fit:cover;"
+
+      style="
+        width:250px;
+        height:250px;
+        border-radius:20px;
+        border:5px solid #0ff;
+        box-shadow:0 8px 25px rgba(0,255,255,0.5);
+        margin-bottom:25px;
+        object-fit:cover;
+      "
     >
 
-    <h1>Lars Gabriel Ramos</h1>
+
+    <h1>
+      Lars Gabriel Ramos
+    </h1>
+
 
     <p>
+
       Welcome to my
-      <span class="highlight">creative portfolio</span>
+      <span class="highlight">
+        creative portfolio
+      </span>
+
     </p>
 
   </header>
 
-  <!-- About Section -->
+
+  <!-- =========================================
+       ABOUT SECTION
+  ========================================= -->
+
   <section id="about">
 
-    <h2>About Me</h2>
+    <h2>
+      About Me
+    </h2>
 
     <p>
+
       Hello! My name is
-      <span class="highlight">Lars Gabriel Ramos</span>.
-      I enjoy playing video games, basketball, and coding is my hobby.
-      I love learning new programming concepts and working on creative projects.
-      I am passionate about technology and enjoy solving problems with code.
-      I dedicate time every day to improve my coding skills.
-      I am a quick learner and always seek new challenges.
-      I also enjoy collaborating with others on projects to gain experience.
-      My goal is to become a professional software developer.
-      I believe that persistence and curiosity are keys to success.
-      I am excited to continue growing my skills and making a positive impact
-      with my projects.
+      <span class="highlight">
+        Lars Gabriel Ramos
+      </span>.
+
+      I enjoy playing video games, basketball,
+      and coding is my hobby.
+
+      I love learning new programming concepts
+      and working on creative projects.
+
+      I am passionate about technology and enjoy
+      solving problems with code.
+
+      I dedicate time every day to improve my
+      coding skills.
+
+      I am a quick learner and always seek
+      new challenges.
+
+      I also enjoy collaborating with others
+      on projects to gain experience.
+
+      My goal is to become a professional
+      software developer.
+
+      I believe that persistence and curiosity
+      are keys to success.
+
+      I am excited to continue growing my skills
+      and making a positive impact with my projects.
+
     </p>
 
   </section>
 
-  <!-- Skills Section -->
+
+  <!-- =========================================
+       SKILLS SECTION
+  ========================================= -->
+
   <section id="skills">
 
-    <h2>Skills</h2>
+    <h2>
+      Skills
+    </h2>
 
     <ul>
-      <li>Basic Java programming</li>
-      <li>Basic HTML and web design</li>
-      <li>Basic C# programming</li>
-      <li>Basic Python coding</li>
+
+      <li>
+        Basic Java programming
+      </li>
+
+      <li>
+        Basic HTML and web design
+      </li>
+
+      <li>
+        Basic C# programming
+      </li>
+
+      <li>
+        Basic Python coding
+      </li>
+
     </ul>
 
   </section>
 
-  <!-- Experience Section -->
+
+  <!-- =========================================
+       EXPERIENCE SECTION
+  ========================================= -->
+
   <section id="experience">
 
-    <h2>Experience</h2>
+    <h2>
+      Experience
+    </h2>
 
     <p>
-      I have experience in basic coding using Java, HTML, C#, and Python.
-      I can create simple programs, applications, and websites.
+
+      I have experience in basic coding using
+      Java, HTML, C#, and Python.
+
+      I can create simple programs,
+      applications, and websites.
+
     </p>
 
   </section>
 
-  <!-- Achievements Section -->
+
+  <!-- =========================================
+       ACHIEVEMENTS SECTION
+  ========================================= -->
+
   <section id="achievements">
 
-    <h2>Achievements</h2>
+    <h2>
+      Achievements
+    </h2>
 
     <ul>
-      <li>High School Graduate</li>
-      <li>Senior High School Graduate (STEM) with Honors</li>
-      <li>Won a Python coding contest (2022)</li>
-      <li>Junior Java Programming Competition (2022)</li>
-      <li>Top Performer in Intro to Programming Bootcamp</li>
+
+      <li>
+        High School Graduate
+      </li>
+
+      <li>
+        Senior High School Graduate (STEM)
+        with Honors
+      </li>
+
+      <li>
+        Won a Python coding contest (2022)
+      </li>
+
+      <li>
+        Junior Java Programming Competition
+        (2022)
+      </li>
+
+      <li>
+        Top Performer in Intro to Programming
+        Bootcamp
+      </li>
+
     </ul>
 
   </section>
 
-  <!-- Projects Section -->
+
+  <!-- =========================================
+       PROJECTS SECTION
+  ========================================= -->
+
   <section id="projects">
 
-    <h2>Projects</h2>
+    <h2>
+      Projects
+    </h2>
+
 
     <button
       class="view-projects-btn"
       onclick="window.location.href='project.html.html'">
+
       View Sample Projects
+
     </button>
 
+
     <ul>
-      <li>Library Management System</li>
-      <li>Personal Portfolio Website</li>
-      <li>Contact Management System</li>
-      <li>Loops and Iterations</li>
-      <li>Java Calculator</li>
-      <li>Tic Tac Toe Java Game</li>
+
+      <li>
+        Library Management System
+      </li>
+
+      <li>
+        Personal Portfolio Website
+      </li>
+
+      <li>
+        Contact Management System
+      </li>
+
+      <li>
+        Loops and Iterations
+      </li>
+
+      <li>
+        Java Calculator
+      </li>
+
+      <li>
+        Tic Tac Toe Java Game
+      </li>
+
     </ul>
 
   </section>
 
-  <!-- Contact Section -->
+
+  <!-- =========================================
+       CONTACT SECTION
+  ========================================= -->
+
   <section id="contact">
 
-    <h2>Contact Me</h2>
+    <h2>
+      Contact Me
+    </h2>
 
     <ul>
+
       <li>
+
         📧 Email:
+
         <a
           href="mailto:larsgabriel.ramos@gmail.com"
           class="highlight">
+
           larsgabriel.ramos@gmail.com
+
         </a>
+
       </li>
 
+
       <li>
+
         📞 Contact Number:
-        <span class="highlight">09159803380</span>
+
+        <span class="highlight">
+
+          09159803380
+
+        </span>
+
       </li>
 
+
       <li>
+
         📘 Facebook:
+
         <a
           href="http://facebook.com/larsgabriel.ramos.3"
           target="_blank"
           class="highlight">
+
           My Facebook
+
         </a>
+
       </li>
+
 
       <li>
-        📍 Location: Philippines
+
+        📍 Location:
+
+        <span class="highlight">
+
+          Taguig City, Philippines
+
+        </span>
+
       </li>
+
     </ul>
 
-    <p style="text-align:center; margin-top:20px; font-weight:bold;">
+
+    <p
+      style="
+        text-align:center;
+        margin-top:20px;
+        font-weight:bold;
+      ">
+
       © 2025 Lars Gabriel Ramos - Portfolio
+
     </p>
 
   </section>
 
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
   <footer>
+
     © 2025 Lars Gabriel Ramos - Portfolio
+
   </footer>
 
 
   <!-- =========================================
        AI CHATBOT BUTTON
-       ========================================= -->
+  ========================================= -->
 
   <button
     class="chatbot-button"
     onclick="toggleChatbot()"
-    title="Ask my AI Assistant">
+    title="Ask Lars Personal AI Chatbot">
+
     🤖
+
   </button>
 
 
   <!-- =========================================
        AI CHATBOT WINDOW
-       ========================================= -->
+  ========================================= -->
 
-  <div class="chatbot-container" id="chatbot">
+  <div
+    class="chatbot-container"
+    id="chatbot">
+
+
+    <!-- CHATBOT HEADER -->
 
     <div class="chatbot-header">
 
       <div>
-        <h3>Portfolio AI</h3>
-        <span class="chatbot-status">● Online</span>
+
+        <h3>
+          Lars Personal AI Chatbot
+        </h3>
+
+        <span class="chatbot-status">
+          ● Online
+        </span>
+
       </div>
+
 
       <span
         class="chatbot-close"
         onclick="toggleChatbot()">
+
         &times;
+
       </span>
 
     </div>
 
 
-    <div class="chatbot-messages" id="chatbotMessages">
+    <!-- CHATBOT MESSAGES -->
+
+    <div
+      class="chatbot-messages"
+      id="chatbotMessages">
+
 
       <div class="bot-message">
 
-        Hi! I'm Lars' Portfolio AI 🤖
+        Hi! I'm Lars Personal AI Chatbot 🤖
 
         <br><br>
 
-        You can ask me about Lars, his skills, education,
-        projects, achievements, experience, or this portfolio.
+        I can answer questions about information
+        included in Lars Gabriel Ramos' portfolio.
+
+        <br><br>
+
+        I can tell you about his:
+
+        <br>
+        • Personal information
+        <br>
+        • Skills
+        <br>
+        • Education
+        <br>
+        • Experience
+        <br>
+        • Achievements
+        <br>
+        • Projects
+        <br>
+        • Hobbies
+        <br>
+        • Career goals
+        <br>
+        • Resume
+        <br>
+        • Contact information
 
         <br><br>
 
@@ -634,12 +948,14 @@
         <br>
         • Tell me about Lars.
         <br>
-        • What are his achievements?
+        • Where is Lars located?
 
       </div>
 
     </div>
 
+
+    <!-- CHATBOT INPUT -->
 
     <div class="chatbot-input-area">
 
@@ -652,10 +968,13 @@
         onkeypress="handleChatKey(event)"
       >
 
+
       <button
         class="chatbot-send"
         onclick="sendMessage()">
+
         ➤
+
       </button>
 
     </div>
@@ -665,9 +984,10 @@
 
   <!-- =========================================
        AI CHATBOT JAVASCRIPT
-       ========================================= -->
+  ========================================= -->
 
   <script>
+
 
     /*
       ==========================================
@@ -676,6 +996,9 @@
     */
 
     const portfolioKnowledge = [
+
+
+      /* GREETING */
 
       {
         keywords: [
@@ -688,9 +1011,11 @@
         ],
 
         answer:
-          "Hello! 👋 I'm Lars' Portfolio AI. I can tell you about Lars, his skills, projects, achievements, experience, and portfolio."
+          "Hello! 👋 I'm Lars Personal AI Chatbot. I can tell you about Lars, his skills, education, projects, achievements, experience, hobbies, career goals, and contact information."
       },
 
+
+      /* ABOUT LARS */
 
       {
         keywords: [
@@ -707,6 +1032,8 @@
       },
 
 
+      /* SKILLS */
+
       {
         keywords: [
           "skills",
@@ -722,17 +1049,22 @@
       },
 
 
+      /* JAVA */
+
       {
         keywords: [
           "java",
           "java programming",
-          "does lars know java"
+          "does lars know java",
+          "java language"
         ],
 
         answer:
           "Yes. Lars has basic Java programming experience. One of his projects is a Java Calculator, and he also created a Tic Tac Toe Java Game."
       },
 
+
+      /* HTML */
 
       {
         keywords: [
@@ -748,6 +1080,8 @@
       },
 
 
+      /* C# */
+
       {
         keywords: [
           "c#",
@@ -760,10 +1094,13 @@
       },
 
 
+      /* PYTHON */
+
       {
         keywords: [
           "python",
-          "python coding"
+          "python coding",
+          "python programming"
         ],
 
         answer:
@@ -771,19 +1108,24 @@
       },
 
 
+      /* PROJECTS */
+
       {
         keywords: [
           "projects",
           "project",
           "what projects",
           "lars projects",
-          "portfolio projects"
+          "portfolio projects",
+          "what has lars made"
         ],
 
         answer:
           "Lars has several sample projects including a Library Management System, Personal Portfolio Website, Contact Management System, Loops and Iterations, Java Calculator, and Tic Tac Toe Java Game."
       },
 
+
+      /* LIBRARY MANAGEMENT */
 
       {
         keywords: [
@@ -797,6 +1139,8 @@
       },
 
 
+      /* PORTFOLIO */
+
       {
         keywords: [
           "portfolio",
@@ -808,6 +1152,8 @@
           "This Personal Portfolio Website showcases Lars' background, skills, experience, achievements, projects, and contact information. It uses a futuristic cyan and dark-themed design."
       },
 
+
+      /* CONTACT MANAGEMENT */
 
       {
         keywords: [
@@ -821,6 +1167,8 @@
       },
 
 
+      /* LOOPS */
+
       {
         keywords: [
           "loops",
@@ -833,6 +1181,8 @@
       },
 
 
+      /* CALCULATOR */
+
       {
         keywords: [
           "calculator",
@@ -843,6 +1193,8 @@
           "The Java Calculator is one of Lars' sample projects. It demonstrates his ability to create a basic calculator application using Java."
       },
 
+
+      /* TIC TAC TOE */
 
       {
         keywords: [
@@ -856,6 +1208,8 @@
       },
 
 
+      /* EXPERIENCE */
+
       {
         keywords: [
           "experience",
@@ -867,6 +1221,8 @@
           "Lars has experience with basic coding using Java, HTML, C#, and Python. He can create simple programs, applications, and websites."
       },
 
+
+      /* ACHIEVEMENTS */
 
       {
         keywords: [
@@ -881,13 +1237,16 @@
       },
 
 
+      /* EDUCATION */
+
       {
         keywords: [
           "education",
           "school",
           "study",
           "studies",
-          "college"
+          "college",
+          "university"
         ],
 
         answer:
@@ -895,10 +1254,14 @@
       },
 
 
+      /* PCU */
+
       {
         keywords: [
           "pcu",
-          "philippine christian university"
+          "philippine christian university",
+          "where does lars study",
+          "where does lars go to school"
         ],
 
         answer:
@@ -906,12 +1269,15 @@
       },
 
 
+      /* CAREER GOAL */
+
       {
         keywords: [
           "goal",
           "career",
           "future",
-          "dream job"
+          "dream job",
+          "career goal"
         ],
 
         answer:
@@ -919,12 +1285,15 @@
       },
 
 
+      /* HOBBIES */
+
       {
         keywords: [
           "hobbies",
           "hobby",
           "free time",
-          "what does lars like"
+          "what does lars like",
+          "what does lars enjoy"
         ],
 
         answer:
@@ -932,18 +1301,45 @@
       },
 
 
+      /* LOCATION */
+
+      {
+        keywords: [
+          "location",
+          "where is lars",
+          "where is lars located",
+          "where does lars live",
+          "address",
+          "city",
+          "taguig",
+          "taguig city",
+          "where is lars from"
+        ],
+
+        answer:
+          "Lars Gabriel Ramos is located in Taguig City, Philippines."
+      },
+
+
+      /* CONTACT */
+
       {
         keywords: [
           "contact",
           "email",
           "email address",
-          "how to contact lars"
+          "how to contact lars",
+          "contact information",
+          "phone",
+          "contact number"
         ],
 
         answer:
-          "You can contact Lars through his email at larsgabriel.ramos@gmail.com. You can also find his Facebook link in the Contact section of this portfolio."
+          "You can contact Lars through his email at larsgabriel.ramos@gmail.com. His contact number is 09159803380, and his location is Taguig City, Philippines. You can also find his Facebook link in the Contact Me section of this portfolio."
       },
 
+
+      /* FACEBOOK */
 
       {
         keywords: [
@@ -956,6 +1352,8 @@
       },
 
 
+      /* RESUME */
+
       {
         keywords: [
           "resume",
@@ -967,6 +1365,8 @@
           "You can download Lars' resume by clicking the 'Download Resume' button near the top of the portfolio."
       },
 
+
+      /* THANK YOU */
 
       {
         keywords: [
@@ -1009,11 +1409,13 @@
 
       const matrix = [];
 
+
       for (let i = 0; i <= b.length; i++) {
 
         matrix[i] = [i];
 
       }
+
 
       for (let j = 0; j <= a.length; j++) {
 
@@ -1021,31 +1423,38 @@
 
       }
 
+
       for (let i = 1; i <= b.length; i++) {
 
         for (let j = 1; j <= a.length; j++) {
 
-          if (b.charAt(i - 1) === a.charAt(j - 1)) {
+          if (
+            b.charAt(i - 1) ===
+            a.charAt(j - 1)
+          ) {
 
-            matrix[i][j] = matrix[i - 1][j - 1];
+            matrix[i][j] =
+              matrix[i - 1][j - 1];
 
           } else {
 
-            matrix[i][j] = Math.min(
+            matrix[i][j] =
+              Math.min(
 
-              matrix[i - 1][j] + 1,
+                matrix[i - 1][j] + 1,
 
-              matrix[i][j - 1] + 1,
+                matrix[i][j - 1] + 1,
 
-              matrix[i - 1][j - 1] + 1
+                matrix[i - 1][j - 1] + 1
 
-            );
+              );
 
           }
 
         }
 
       }
+
 
       return matrix[b.length][a.length];
 
@@ -1061,14 +1470,25 @@
     function similarity(word1, word2) {
 
       if (!word1 || !word2) {
+
         return 0;
+
       }
 
+
       const distance =
-        levenshteinDistance(word1, word2);
+        levenshteinDistance(
+          word1,
+          word2
+        );
+
 
       const maxLength =
-        Math.max(word1.length, word2.length);
+        Math.max(
+          word1.length,
+          word2.length
+        );
+
 
       return 1 - distance / maxLength;
 
@@ -1086,8 +1506,10 @@
       const input =
         normalizeText(userInput);
 
+
       const words =
         input.split(/\s+/);
+
 
       let bestMatch = null;
 
@@ -1106,10 +1528,12 @@
 
 
           /*
-            Exact phrase match
+            EXACT PHRASE MATCH
           */
 
-          if (input.includes(normalizedKeyword)) {
+          if (
+            input.includes(normalizedKeyword)
+          ) {
 
             score += 10;
 
@@ -1117,7 +1541,7 @@
 
 
           /*
-            Typo detection
+            TYPO DETECTION
           */
 
           const keywordWords =
@@ -1129,7 +1553,10 @@
             words.forEach(userWord => {
 
               const match =
-                similarity(userWord, keywordWord);
+                similarity(
+                  userWord,
+                  keywordWord
+                );
 
 
               if (match >= 0.75) {
@@ -1156,35 +1583,71 @@
       });
 
 
-      if (bestMatch && highestScore >= 2) {
+      /*
+        ONLY ANSWER IF THE QUESTION
+        MATCHES PORTFOLIO INFORMATION
+      */
+
+      if (
+        bestMatch &&
+        highestScore >= 2
+      ) {
 
         return bestMatch.answer;
 
       }
 
 
+      /*
+        QUESTION IS NOT INCLUDED
+        IN THE PORTFOLIO
+      */
+
       return `
-        I'm not completely sure what you mean. 🤔
+
+        I'm sorry, but that information is not
+        included in Lars Gabriel Ramos' portfolio. 🤖
 
         <br><br>
 
-        You can ask me about:
-
-        <br>• Lars
-        <br>• Skills
-        <br>• Education
-        <br>• Experience
-        <br>• Achievements
-        <br>• Projects
-        <br>• Hobbies
-        <br>• Resume
-        <br>• Contact information
+        <b>Lars Personal AI Chatbot</b> can only
+        answer questions based on the information
+        available in this portfolio.
 
         <br><br>
 
-        Try asking something like:
-        <br><b>"what are lars skils"</b>
-        <br><b>"wat projcts does he have"</b>
+        <b>You can ask me about:</b>
+
+        <br>
+        • Lars' personal information
+
+        <br>
+        • Skills
+
+        <br>
+        • Education
+
+        <br>
+        • Experience
+
+        <br>
+        • Achievements
+
+        <br>
+        • Projects
+
+        <br>
+        • Hobbies
+
+        <br>
+        • Career goals
+
+        <br>
+        • Resume
+
+        <br>
+        • Contact information
+
       `;
 
     }
@@ -1201,13 +1664,17 @@
       const chatbot =
         document.getElementById("chatbot");
 
-      if (chatbot.style.display === "flex") {
+
+      if (
+        chatbot.style.display === "flex"
+      ) {
 
         chatbot.style.display = "none";
 
       } else {
 
         chatbot.style.display = "flex";
+
 
         document
           .getElementById("chatbotInput")
@@ -1224,10 +1691,16 @@
       ==========================================
     */
 
-    function addMessage(message, sender) {
+    function addMessage(
+      message,
+      sender
+    ) {
 
       const messages =
-        document.getElementById("chatbotMessages");
+        document.getElementById(
+          "chatbotMessages"
+        );
+
 
       const messageElement =
         document.createElement("div");
@@ -1246,9 +1719,13 @@
       }
 
 
-      messageElement.innerHTML = message;
+      messageElement.innerHTML =
+        message;
 
-      messages.appendChild(messageElement);
+
+      messages.appendChild(
+        messageElement
+      );
 
 
       messages.scrollTop =
@@ -1266,7 +1743,10 @@
     function sendMessage() {
 
       const input =
-        document.getElementById("chatbotInput");
+        document.getElementById(
+          "chatbotInput"
+        );
+
 
       const userMessage =
         input.value.trim();
@@ -1280,7 +1760,7 @@
 
 
       /*
-        Display user message
+        DISPLAY USER MESSAGE
       */
 
       addMessage(
@@ -1293,11 +1773,13 @@
 
 
       /*
-        Show thinking message
+        SHOW THINKING MESSAGE
       */
 
       const messages =
-        document.getElementById("chatbotMessages");
+        document.getElementById(
+          "chatbotMessages"
+        );
 
 
       const typing =
@@ -1313,10 +1795,12 @@
 
 
       typing.innerText =
-        "Portfolio AI is thinking...";
+        "Lars Personal AI Chatbot is thinking...";
 
 
-      messages.appendChild(typing);
+      messages.appendChild(
+        typing
+      );
 
 
       messages.scrollTop =
@@ -1324,10 +1808,11 @@
 
 
       /*
-        Generate response
+        GENERATE RESPONSE
       */
 
       setTimeout(() => {
+
 
         const typingIndicator =
           document.getElementById(
@@ -1343,13 +1828,16 @@
 
 
         const response =
-          findBestAnswer(userMessage);
+          findBestAnswer(
+            userMessage
+          );
 
 
         addMessage(
           response,
           "bot"
         );
+
 
       }, 500);
 
@@ -1364,7 +1852,9 @@
 
     function handleChatKey(event) {
 
-      if (event.key === "Enter") {
+      if (
+        event.key === "Enter"
+      ) {
 
         sendMessage();
 
@@ -1376,3 +1866,4 @@
 
 </body>
 </html>
+```
