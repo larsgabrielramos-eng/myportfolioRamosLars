@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>My Projects - Lars Gabriel Ramos</title>
+
   <style>
+
+    /* =========================================
+       GENERAL PAGE
+    ========================================= */
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -21,17 +28,42 @@
       left: 0;
       width: 100%;
       height: 100%;
+
       background-size: 50px 50px;
-      background-image: linear-gradient(rgba(0,255,255,0.15) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(0,255,255,0.15) 1px, transparent 1px);
+
+      background-image:
+        linear-gradient(
+          rgba(0,255,255,0.15) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0,255,255,0.15) 1px,
+          transparent 1px
+        );
+
       animation: moveGrid 12s linear infinite;
+
       z-index: -5;
     }
 
+
     @keyframes moveGrid {
-      from { background-position: 0 0; }
-      to { background-position: 0 50px; }
+
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 0 50px;
+      }
+
     }
+
+
+    /* =========================================
+       HEADER
+    ========================================= */
 
     header {
       padding: 60px 20px 40px;
@@ -39,231 +71,1934 @@
       position: relative;
     }
 
+
     h1 {
       font-size: 3rem;
-      text-shadow: 0 0 15px cyan, 0 0 30px #0ff;
+
+      text-shadow:
+        0 0 15px cyan,
+        0 0 30px #0ff;
+
       margin-bottom: 10px;
     }
 
-    p { font-size: 1.2rem; text-shadow: 0 0 10px #0ff; }
 
-    nav {
-      display:flex;
-      justify-content:center;
-      gap:40px;
-      padding:15px 0;
-      position:sticky;
-      top:0;
-      z-index:100;
+    p {
+      font-size: 1.2rem;
+
+      text-shadow:
+        0 0 10px #0ff;
     }
 
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+
+      padding: 15px 0;
+
+      position: sticky;
+      top: 0;
+
+      z-index: 100;
+    }
+
+
     nav a {
-      color:#0ff; 
-      text-decoration:none; 
-      font-weight:bold; 
-      font-size:1.1rem;
+      color: #0ff;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+      font-size: 1.1rem;
+
       transition: 0.3s;
     }
 
-    nav a:hover { color: #fff; transform: scale(1.1); }
+
+    nav a:hover {
+      color: #fff;
+
+      transform: scale(1.1);
+    }
+
+
+    /* =========================================
+       PROJECT SECTION
+    ========================================= */
 
     section {
       background: rgba(0,0,0,0.6);
+
       margin: 40px auto;
+
       padding: 40px;
+
       width: 85%;
+
       max-width: 1000px;
+
       border-radius: 25px;
+
       border: 1px solid rgba(0,255,255,0.3);
-      box-shadow: 0px 8px 18px rgba(0,255,255,0.2);
+
+      box-shadow:
+        0px 8px 18px rgba(0,255,255,0.2);
+
       transition: 0.3s ease;
     }
 
+
     section:hover {
+
       transform: translateY(-5px);
-      box-shadow: 0px 12px 25px rgba(0,255,255,0.4);
+
+      box-shadow:
+        0px 12px 25px rgba(0,255,255,0.4);
     }
 
-    h2 { color: #0ff; border-left: 6px solid #0ff; padding-left: 12px; font-size: 2rem; margin-bottom: 25px; }
+
+    h2 {
+      color: #0ff;
+
+      border-left: 6px solid #0ff;
+
+      padding-left: 12px;
+
+      font-size: 2rem;
+
+      margin-bottom: 25px;
+    }
+
+
+    /* =========================================
+       PROJECT FOLDERS
+    ========================================= */
 
     .folder-grid {
+
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
       gap: 20px;
+
       align-items: start;
     }
 
+
     .folder {
-      background: rgba(0,255,255,0.2);
+
+      background:
+        rgba(0,255,255,0.2);
+
       border: 1px solid #0ff;
+
       border-radius: 15px;
+
       padding: 20px;
+
       text-align: center;
+
       cursor: pointer;
+
       transition: 0.3s;
-      box-shadow: 0 3px 10px rgba(0,255,255,0.3);
+
+      box-shadow:
+        0 3px 10px rgba(0,255,255,0.3);
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       height: 120px;
+
       word-wrap: break-word;
+
       font-size: 1rem;
-      text-align: center;
     }
+
 
     .folder:hover {
-      background: rgba(0,255,255,0.4);
-      box-shadow: 0 0 15px cyan;
+
+      background:
+        rgba(0,255,255,0.4);
+
+      box-shadow:
+        0 0 15px cyan;
+
       transform: scale(1.05);
     }
 
+
+    /* =========================================
+       BACK BUTTON
+    ========================================= */
+
     .back-button {
+
       grid-column: 1 / -1;
+
       text-align: center;
     }
 
+
     .back-button button {
+
       padding: 12px 25px;
+
       font-size: 1rem;
+
       border: none;
+
       border-radius: 12px;
+
       background: #0ff;
+
       color: #01020a;
+
       font-weight: bold;
+
       cursor: pointer;
-      box-shadow: 0 3px 8px rgba(0,255,255,0.2);
+
+      box-shadow:
+        0 3px 8px rgba(0,255,255,0.2);
+
       transition: 0.3s;
     }
 
+
     .back-button button:hover {
+
       background: cyan;
+
       transform: scale(1.05);
     }
 
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
     footer {
+
       text-align: center;
+
       padding: 30px;
-      background: rgba(0,0,0,0.8);
+
+      background:
+        rgba(0,0,0,0.8);
+
       font-weight: bold;
+
       color: #0ff;
-      border-top: 3px solid #0ff;
-      border-radius: 30px 30px 0 0;
+
+      border-top:
+        3px solid #0ff;
+
+      border-radius:
+        30px 30px 0 0;
+
       margin-top: 60px;
     }
 
-    /* Modal styles */
+
+    /* =========================================
+       PROJECT MODAL
+    ========================================= */
+
     .modal {
+
       display: none;
+
       position: fixed;
+
       z-index: 200;
+
       left: 0;
+
       top: 0;
+
       width: 100%;
+
       height: 100%;
+
       overflow: auto;
-      background-color: rgba(0,0,0,0.9);
+
+      background-color:
+        rgba(0,0,0,0.9);
     }
 
+
     .modal-content {
+
       margin: 5% auto;
+
       padding: 20px;
+
       width: 80%;
+
       max-width: 700px;
-      background: rgba(0,0,0,0.8);
+
+      background:
+        rgba(0,0,0,0.8);
+
       border-radius: 15px;
+
       color: #0ff;
+
       text-align: center;
     }
 
+
     .close {
+
       color: #0ff;
+
       float: right;
+
       font-size: 28px;
+
       font-weight: bold;
+
       cursor: pointer;
     }
 
-    .close:hover { color: cyan; }
+
+    .close:hover {
+
+      color: cyan;
+    }
+
 
     .project-images img {
+
       max-width: 100%;
+
       margin-top: 15px;
+
       border-radius: 10px;
-      box-shadow: 0 0 10px #0ff;
+
+      box-shadow:
+        0 0 10px #0ff;
     }
+
+
+    /* =========================================
+       AI CHATBOT BUTTON
+    ========================================= */
+
+    .chatbot-button {
+
+      position: fixed;
+
+      bottom: 25px;
+
+      right: 25px;
+
+      width: 65px;
+
+      height: 65px;
+
+      border-radius: 50%;
+
+      border: 2px solid #0ff;
+
+      background:
+        rgba(0,20,25,0.95);
+
+      color: #0ff;
+
+      font-size: 28px;
+
+      cursor: pointer;
+
+      z-index: 1000;
+
+      box-shadow:
+        0 0 15px #0ff,
+        0 0 30px rgba(0,255,255,0.5);
+
+      transition: 0.3s;
+    }
+
+
+    .chatbot-button:hover {
+
+      transform: scale(1.1);
+
+      box-shadow:
+        0 0 25px #0ff,
+        0 0 50px rgba(0,255,255,0.7);
+    }
+
+
+    /* =========================================
+       AI CHATBOT WINDOW
+    ========================================= */
+
+    .chatbot-container {
+
+      position: fixed;
+
+      bottom: 100px;
+
+      right: 25px;
+
+      width: 360px;
+
+      height: 500px;
+
+      background:
+        rgba(0,5,15,0.97);
+
+      border:
+        1px solid #0ff;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 0 25px rgba(0,255,255,0.5);
+
+      display: none;
+
+      flex-direction: column;
+
+      overflow: hidden;
+
+      z-index: 999;
+
+      backdrop-filter: blur(10px);
+    }
+
+
+    /* =========================================
+       CHATBOT HEADER
+    ========================================= */
+
+    .chatbot-header {
+
+      background:
+        rgba(0,255,255,0.12);
+
+      border-bottom:
+        1px solid rgba(0,255,255,0.4);
+
+      padding: 15px;
+
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+    }
+
+
+    .chatbot-header h3 {
+
+      margin: 0;
+
+      color: #0ff;
+
+      font-size: 1.1rem;
+
+      text-shadow:
+        0 0 10px #0ff;
+    }
+
+
+    .chatbot-status {
+
+      font-size: 0.75rem;
+
+      color: #00ff88;
+    }
+
+
+    .chatbot-close {
+
+      color: #0ff;
+
+      font-size: 22px;
+
+      cursor: pointer;
+    }
+
+
+    .chatbot-close:hover {
+
+      color: white;
+    }
+
+
+    /* =========================================
+       CHAT MESSAGES
+    ========================================= */
+
+    .chatbot-messages {
+
+      flex: 1;
+
+      padding: 15px;
+
+      overflow-y: auto;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 12px;
+    }
+
+
+    .bot-message,
+    .user-message {
+
+      max-width: 80%;
+
+      padding: 10px 14px;
+
+      border-radius: 15px;
+
+      font-size: 0.9rem;
+
+      line-height: 1.4;
+    }
+
+
+    .bot-message {
+
+      align-self: flex-start;
+
+      background:
+        rgba(0,255,255,0.12);
+
+      border:
+        1px solid rgba(0,255,255,0.3);
+
+      color: #0ff;
+    }
+
+
+    .user-message {
+
+      align-self: flex-end;
+
+      background:
+        rgba(0,255,255,0.25);
+
+      border:
+        1px solid #0ff;
+
+      color: white;
+    }
+
+
+    /* =========================================
+       CHAT INPUT
+    ========================================= */
+
+    .chatbot-input-area {
+
+      display: flex;
+
+      padding: 12px;
+
+      border-top:
+        1px solid rgba(0,255,255,0.3);
+
+      gap: 8px;
+    }
+
+
+    .chatbot-input {
+
+      flex: 1;
+
+      background:
+        rgba(0,0,0,0.7);
+
+      border:
+        1px solid #0ff;
+
+      border-radius: 10px;
+
+      padding: 10px;
+
+      color: #0ff;
+
+      outline: none;
+    }
+
+
+    .chatbot-input::placeholder {
+
+      color:
+        rgba(0,255,255,0.5);
+    }
+
+
+    .chatbot-send {
+
+      background: #0ff;
+
+      color: #01020a;
+
+      border: none;
+
+      border-radius: 10px;
+
+      padding: 10px 14px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+
+    .chatbot-send:hover {
+
+      box-shadow:
+        0 0 15px #0ff;
+    }
+
+
+    .typing {
+
+      font-style: italic;
+
+      opacity: 0.7;
+    }
+
+
+    /* =========================================
+       MOBILE CHATBOT
+    ========================================= */
+
+    @media (max-width: 500px) {
+
+      .chatbot-container {
+
+        width:
+          calc(100% - 30px);
+
+        right: 15px;
+
+        bottom: 90px;
+
+        height: 480px;
+      }
+
+
+      .chatbot-button {
+
+        right: 15px;
+
+        bottom: 15px;
+      }
+
+    }
+
   </style>
 </head>
+
+
 <body>
 
+
+  <!-- =========================================
+       NAVIGATION
+  ========================================= -->
+
   <nav>
-    <a href="index.html.html">Home</a>
-    <a href="my_projects.html">My Projects</a>
-    <a href="#contact">Contact</a>
+
+    <a href="index.html.html">
+      Home
+    </a>
+
+    <a href="my_projects.html">
+      My Projects
+    </a>
+
+    <a href="#contact">
+      Contact
+    </a>
+
   </nav>
 
+
+  <!-- =========================================
+       PAGE HEADER
+  ========================================= -->
+
   <header>
-    <h1>My Projects</h1>
-    <p>Click on a folder to view the project images</p>
+
+    <h1>
+      My Projects
+    </h1>
+
+    <p>
+      Click on a folder to view the project images
+    </p>
+
   </header>
 
+
+  <!-- =========================================
+       PROJECTS
+  ========================================= -->
+
   <section>
+
     <div class="folder-grid">
-      <div class="folder" onclick="openModal('Librarymanagementsystem')">Library Management System</div>
-      <div class="folder" onclick="openModal('PersonalPortfolioWebsite')">Personal Portfolio Website</div>
-      <div class="folder" onclick="openModal('ContactManagementSystem')">Contact Management System</div>
-      <div class="folder" onclick="openModal('LoopsAndIterations')">Loops and Iterations</div>
-      <div class="folder" onclick="openModal('JavaCalculator')">Java Calculator</div>
-      <div class="folder" onclick="openModal('TicTacToeJavaGame')">Tic Tac Toe Java Game</div>
-      <div class="back-button"><button onclick="location.href='index.html.html'">Back to Portfolio</button></div>
+
+
+      <div
+        class="folder"
+        onclick="openModal('Librarymanagementsystem')">
+
+        Library Management System
+
+      </div>
+
+
+      <div
+        class="folder"
+        onclick="openModal('PersonalPortfolioWebsite')">
+
+        Personal Portfolio Website
+
+      </div>
+
+
+      <div
+        class="folder"
+        onclick="openModal('ContactManagementSystem')">
+
+        Contact Management System
+
+      </div>
+
+
+      <div
+        class="folder"
+        onclick="openModal('LoopsAndIterations')">
+
+        Loops and Iterations
+
+      </div>
+
+
+      <div
+        class="folder"
+        onclick="openModal('JavaCalculator')">
+
+        Java Calculator
+
+      </div>
+
+
+      <div
+        class="folder"
+        onclick="openModal('TicTacToeJavaGame')">
+
+        Tic Tac Toe Java Game
+
+      </div>
+
+
+      <div class="back-button">
+
+        <button
+          onclick="location.href='index.html.html'">
+
+          Back to Portfolio
+
+        </button>
+
+      </div>
+
     </div>
+
   </section>
 
-  <!-- Modal -->
-  <div id="projectModal" class="modal">
+
+  <!-- =========================================
+       PROJECT MODAL
+  ========================================= -->
+
+  <div
+    id="projectModal"
+    class="modal">
+
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+
+      <span
+        class="close"
+        onclick="closeModal()">
+
+        &times;
+
+      </span>
+
+
       <h2 id="modalTitle"></h2>
-      <div class="project-images" id="projectImages"></div>
+
+
+      <div
+        class="project-images"
+        id="projectImages">
+
+      </div>
+
     </div>
+
   </div>
 
+
+  <!-- =========================================
+       AI CHATBOT BUTTON
+  ========================================= -->
+
+  <button
+    class="chatbot-button"
+    onclick="toggleChatbot()"
+    title="Ask my AI Assistant">
+
+    🤖
+
+  </button>
+
+
+  <!-- =========================================
+       AI CHATBOT
+  ========================================= -->
+
+  <div
+    class="chatbot-container"
+    id="chatbot">
+
+
+    <!-- CHATBOT HEADER -->
+
+    <div class="chatbot-header">
+
+      <div>
+
+        <h3>
+          Portfolio AI
+        </h3>
+
+        <span class="chatbot-status">
+          ● Online
+        </span>
+
+      </div>
+
+
+      <span
+        class="chatbot-close"
+        onclick="toggleChatbot()">
+
+        &times;
+
+      </span>
+
+    </div>
+
+
+    <!-- CHAT MESSAGES -->
+
+    <div
+      class="chatbot-messages"
+      id="chatbotMessages">
+
+
+      <div class="bot-message">
+
+        Hi! I'm Lars' Portfolio AI 🤖
+
+        <br><br>
+
+        You can ask me about Lars, his
+        skills, education, projects,
+        experience, or anything about
+        this portfolio.
+
+        <br><br>
+
+        <b>Try asking:</b>
+
+        <br>
+
+        • What are Lars' skills?
+
+        <br>
+
+        • What projects does he have?
+
+        <br>
+
+        • Where does he study?
+
+      </div>
+
+
+    </div>
+
+
+    <!-- CHAT INPUT -->
+
+    <div class="chatbot-input-area">
+
+      <input
+        type="text"
+        id="chatbotInput"
+        class="chatbot-input"
+        placeholder="Ask me something..."
+        autocomplete="off"
+        onkeypress="handleChatKey(event)"
+      />
+
+
+      <button
+        class="chatbot-send"
+        onclick="sendMessage()">
+
+        ➤
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
   <footer>
+
     © 2025 Lars Gabriel Ramos - Portfolio
+
   </footer>
 
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
+
   <script>
+
+
+    /* =========================================
+       PROJECT DATA
+    ========================================= */
+
     const projectData = {
-      'Librarymanagementsystem': ['Screenshot 2025-11-18 170219.png', 'Screenshot 2025-11-18 170237.png'],
-      'PersonalPortfolioWebsite': ['Screenshot 2025-11-18 170526.png', 'Screenshot 2025-11-18 170551.png'],
-      'ContactManagementSystem': ['Screenshot 2025-11-18 170810.png', 'Screenshot 2025-11-18 170753.png'],
-      'LoopsAndIterations': ['Screenshot 2025-11-18 171147.png','Screenshot 2025-11-18 171213.png'],
-      'JavaCalculator': ['Screenshot 2025-11-18 171642.png', 'Screenshot 2025-11-18 171650.png'],
-      'TicTacToeJavaGame': ['Screenshot 2025-11-18 172008.png', 'Screenshot 2025-11-18 172018.png']
+
+      'Librarymanagementsystem': [
+
+        'Screenshot 2025-11-18 170219.png',
+
+        'Screenshot 2025-11-18 170237.png'
+
+      ],
+
+
+      'PersonalPortfolioWebsite': [
+
+        'Screenshot 2025-11-18 170526.png',
+
+        'Screenshot 2025-11-18 170551.png'
+
+      ],
+
+
+      'ContactManagementSystem': [
+
+        'Screenshot 2025-11-18 170810.png',
+
+        'Screenshot 2025-11-18 170753.png'
+
+      ],
+
+
+      'LoopsAndIterations': [
+
+        'Screenshot 2025-11-18 171147.png',
+
+        'Screenshot 2025-11-18 171213.png'
+
+      ],
+
+
+      'JavaCalculator': [
+
+        'Screenshot 2025-11-18 171642.png',
+
+        'Screenshot 2025-11-18 171650.png'
+
+      ],
+
+
+      'TicTacToeJavaGame': [
+
+        'Screenshot 2025-11-18 172008.png',
+
+        'Screenshot 2025-11-18 172018.png'
+
+      ]
+
     };
 
+
+    /* =========================================
+       OPEN PROJECT MODAL
+    ========================================= */
+
     function openModal(projectName) {
-      document.getElementById('projectModal').style.display = 'block';
-      document.getElementById('modalTitle').innerText = projectName.replace(/([A-Z])/g, ' $1').trim();
-      const imagesContainer = document.getElementById('projectImages');
+
+      document
+        .getElementById('projectModal')
+        .style.display = 'block';
+
+
+      document
+        .getElementById('modalTitle')
+        .innerText =
+        projectName
+          .replace(/([A-Z])/g, ' $1')
+          .trim();
+
+
+      const imagesContainer =
+        document.getElementById('projectImages');
+
+
       imagesContainer.innerHTML = '';
+
+
       projectData[projectName].forEach(src => {
-        const img = document.createElement('img');
+
+        const img =
+          document.createElement('img');
+
+
         img.src = src;
+
+        img.alt = projectName;
+
+
         imagesContainer.appendChild(img);
+
       });
+
     }
+
+
+    /* =========================================
+       CLOSE PROJECT MODAL
+    ========================================= */
 
     function closeModal() {
-      document.getElementById('projectModal').style.display = 'none';
+
+      document
+        .getElementById('projectModal')
+        .style.display = 'none';
+
     }
 
+
+    /* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
     window.onclick = function(event) {
-      const modal = document.getElementById('projectModal');
+
+      const modal =
+        document.getElementById('projectModal');
+
+
       if (event.target === modal) {
+
         closeModal();
+
       }
+
+    };
+
+
+    /* =========================================
+       PORTFOLIO AI KNOWLEDGE BASE
+    ========================================= */
+
+    const portfolioKnowledge = [
+
+
+      /* ABOUT */
+
+      {
+
+        keywords: [
+
+          "name",
+
+          "who are you",
+
+          "who is lars",
+
+          "about lars",
+
+          "about"
+
+        ],
+
+        answer:
+
+          "Lars Gabriel Ramos is a 4th-year Bachelor of Science in Information Technology (BSIT) student at Philippine Christian University. He is interested in IT Support, Cybersecurity, Data Analytics, and Web Development."
+
+      },
+
+
+      /* EDUCATION */
+
+      {
+
+        keywords: [
+
+          "education",
+
+          "school",
+
+          "college",
+
+          "university",
+
+          "study",
+
+          "studying"
+
+        ],
+
+        answer:
+
+          "Lars is currently studying BSIT at Philippine Christian University (PCU). His educational background also includes Jose Rizal University, St. Paul Quezon City, Sto. Niño Parochial School, Quezon City Academy, and AMA University."
+
+      },
+
+
+      /* SKILLS */
+
+      {
+
+        keywords: [
+
+          "skills",
+
+          "skill",
+
+          "programming",
+
+          "languages",
+
+          "technology",
+
+          "technologies"
+
+        ],
+
+        answer:
+
+          "Lars has experience with HTML, CSS, Java, C#, SQL, JavaScript, database management, web development, systems analysis and design, and data mining."
+
+      },
+
+
+      /* PROJECTS */
+
+      {
+
+        keywords: [
+
+          "projects",
+
+          "project",
+
+          "portfolio",
+
+          "works",
+
+          "work"
+
+        ],
+
+        answer:
+
+          "Lars' projects include a Library Management System, Personal Portfolio Website, Contact Management System, Loops and Iterations exercises, Java Calculator, and a Tic Tac Toe Java Game."
+
+      },
+
+
+      /* LIBRARY */
+
+      {
+
+        keywords: [
+
+          "library",
+
+          "library management",
+
+          "library system"
+
+        ],
+
+        answer:
+
+          "The Library Management System is a project focused on managing library operations such as books, student records, borrowing and returning books, bookmarks, donations, due dates, and overdue penalties."
+
+      },
+
+
+      /* PORTFOLIO */
+
+      {
+
+        keywords: [
+
+          "portfolio website",
+
+          "personal portfolio",
+
+          "website"
+
+        ],
+
+        answer:
+
+          "This Personal Portfolio Website showcases Lars' background, skills, projects, and experience. It uses HTML, CSS, and JavaScript with a futuristic cyan-themed interface."
+
+      },
+
+
+      /* CONTACT MANAGEMENT */
+
+      {
+
+        keywords: [
+
+          "contact",
+
+          "contact management"
+
+        ],
+
+        answer:
+
+          "The Contact Management System is one of Lars' programming projects designed to manage contact information."
+
+      },
+
+
+      /* JAVA CALCULATOR */
+
+      {
+
+        keywords: [
+
+          "java calculator",
+
+          "calculator"
+
+        ],
+
+        answer:
+
+          "The Java Calculator is a Java programming project that demonstrates basic calculator operations and programming logic."
+
+      },
+
+
+      /* TIC TAC TOE */
+
+      {
+
+        keywords: [
+
+          "tic tac toe",
+
+          "tictactoe",
+
+          "tic tac"
+
+        ],
+
+        answer:
+
+          "The Tic Tac Toe Java Game is a Java-based game project that demonstrates programming logic, user interaction, and game mechanics."
+
+      },
+
+
+      /* LOOPS */
+
+      {
+
+        keywords: [
+
+          "loops",
+
+          "iterations",
+
+          "loop"
+
+        ],
+
+        answer:
+
+          "Loops and Iterations is one of Lars' programming exercises demonstrating repetition structures and programming logic."
+
+      },
+
+
+      /* CAREER */
+
+      {
+
+        keywords: [
+
+          "career",
+
+          "job",
+
+          "career interest",
+
+          "interested"
+
+        ],
+
+        answer:
+
+          "Lars is interested in IT Support, Help Desk, Cybersecurity, Data Analytics, and Web Development."
+
+      },
+
+
+      /* OJT */
+
+      {
+
+        keywords: [
+
+          "ojt",
+
+          "internship",
+
+          "intern",
+
+          "experience"
+
+        ],
+
+        answer:
+
+          "Lars is pursuing IT-related internship experience where he can apply his skills in technology, testing, systems, databases, and IT support."
+
+      },
+
+
+      /* HOBBIES */
+
+      {
+
+        keywords: [
+
+          "hobby",
+
+          "hobbies",
+
+          "free time"
+
+        ],
+
+        answer:
+
+          "Lars enjoys online games, movies and series, basketball, and studying."
+
+      },
+
+
+      /* CONTACT */
+
+      {
+
+        keywords: [
+
+          "contact me",
+
+          "email",
+
+          "contact information"
+
+        ],
+
+        answer:
+
+          "You can use the Contact section of this portfolio to find Lars' available contact information."
+
+      },
+
+
+      /* THANK YOU */
+
+      {
+
+        keywords: [
+
+          "thank you",
+
+          "thanks"
+
+        ],
+
+        answer:
+
+          "You're welcome! Feel free to ask me anything about Lars' portfolio. 🤖"
+
+      },
+
+
+      /* GREETING */
+
+      {
+
+        keywords: [
+
+          "hello",
+
+          "hi",
+
+          "hey"
+
+        ],
+
+        answer:
+
+          "Hello! 👋 I'm Lars' Portfolio AI. Ask me about his skills, education, projects, experience, or career interests."
+
+      }
+
+    ];
+
+
+    /* =========================================
+       NORMALIZE USER TEXT
+    ========================================= */
+
+    function normalizeText(text) {
+
+      return text
+
+        .toLowerCase()
+
+        .replace(/[^\w\s]/g, "")
+
+        .trim();
+
     }
+
+
+    /* =========================================
+       LEVENSHTEIN DISTANCE
+       
+       This is what helps the chatbot
+       understand misspelled words.
+    ========================================= */
+
+    function levenshteinDistance(a, b) {
+
+      const matrix = [];
+
+
+      for (let i = 0; i <= b.length; i++) {
+
+        matrix[i] = [i];
+
+      }
+
+
+      for (let j = 0; j <= a.length; j++) {
+
+        matrix[0][j] = j;
+
+      }
+
+
+      for (let i = 1; i <= b.length; i++) {
+
+        for (let j = 1; j <= a.length; j++) {
+
+          if (
+            b.charAt(i - 1) ===
+            a.charAt(j - 1)
+          ) {
+
+            matrix[i][j] =
+              matrix[i - 1][j - 1];
+
+          }
+
+          else {
+
+            matrix[i][j] =
+              Math.min(
+
+                matrix[i - 1][j] + 1,
+
+                matrix[i][j - 1] + 1,
+
+                matrix[i - 1][j - 1] + 1
+
+              );
+
+          }
+
+        }
+
+      }
+
+
+      return matrix[b.length][a.length];
+
+    }
+
+
+    /* =========================================
+       CALCULATE WORD SIMILARITY
+    ========================================= */
+
+    function similarity(word1, word2) {
+
+      if (!word1 || !word2) {
+
+        return 0;
+
+      }
+
+
+      const distance =
+        levenshteinDistance(
+          word1,
+          word2
+        );
+
+
+      const maxLength =
+        Math.max(
+          word1.length,
+          word2.length
+        );
+
+
+      return 1 - distance / maxLength;
+
+    }
+
+
+    /* =========================================
+       FIND BEST PORTFOLIO ANSWER
+    ========================================= */
+
+    function findBestAnswer(userInput) {
+
+      const input =
+        normalizeText(userInput);
+
+
+      const words =
+        input.split(/\s+/);
+
+
+      let bestMatch = null;
+
+      let highestScore = 0;
+
+
+      portfolioKnowledge.forEach(item => {
+
+        let score = 0;
+
+
+        item.keywords.forEach(keyword => {
+
+          const normalizedKeyword =
+            normalizeText(keyword);
+
+
+          /*
+             EXACT PHRASE MATCH
+          */
+
+          if (
+            input.includes(
+              normalizedKeyword
+            )
+          ) {
+
+            score += 10;
+
+          }
+
+
+          /*
+             TYPO-TOLERANT MATCH
+          */
+
+          const keywordWords =
+            normalizedKeyword
+              .split(/\s+/);
+
+
+          keywordWords.forEach(
+            keywordWord => {
+
+              words.forEach(userWord => {
+
+                const match =
+                  similarity(
+                    userWord,
+                    keywordWord
+                  );
+
+
+                /*
+                   0.75 means approximately
+                   75% similarity.
+                */
+
+                if (match >= 0.75) {
+
+                  score +=
+                    match * 3;
+
+                }
+
+              });
+
+            });
+
+        });
+
+
+        if (score > highestScore) {
+
+          highestScore = score;
+
+          bestMatch = item;
+
+        }
+
+      });
+
+
+      /*
+         Return best answer
+      */
+
+      if (
+        bestMatch &&
+        highestScore >= 2
+      ) {
+
+        return bestMatch.answer;
+
+      }
+
+
+      /*
+         If nothing is understood
+      */
+
+      return `
+
+        I'm not completely sure what you mean. 🤖
+
+        <br><br>
+
+        Try asking me about:
+
+        <br>
+
+        • Lars' skills
+
+        <br>
+
+        • His projects
+
+        <br>
+
+        • His education
+
+        <br>
+
+        • His OJT / internship
+
+        <br>
+
+        • His career interests
+
+      `;
+
+    }
+
+
+    /* =========================================
+       OPEN / CLOSE CHATBOT
+    ========================================= */
+
+    function toggleChatbot() {
+
+      const chatbot =
+        document.getElementById(
+          "chatbot"
+        );
+
+
+      if (
+        chatbot.style.display ===
+        "flex"
+      ) {
+
+        chatbot.style.display =
+          "none";
+
+      }
+
+      else {
+
+        chatbot.style.display =
+          "flex";
+
+
+        document
+          .getElementById(
+            "chatbotInput"
+          )
+          .focus();
+
+      }
+
+    }
+
+
+    /* =========================================
+       ADD CHAT MESSAGE
+    ========================================= */
+
+    function addMessage(
+      message,
+      sender
+    ) {
+
+      const messages =
+        document.getElementById(
+          "chatbotMessages"
+        );
+
+
+      const messageDiv =
+        document.createElement(
+          "div"
+        );
+
+
+      if (sender === "user") {
+
+        messageDiv.className =
+          "user-message";
+
+      }
+
+      else {
+
+        messageDiv.className =
+          "bot-message";
+
+      }
+
+
+      messageDiv.innerHTML =
+        message;
+
+
+      messages.appendChild(
+        messageDiv
+      );
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+    }
+
+
+    /* =========================================
+       SEND MESSAGE
+    ========================================= */
+
+    function sendMessage() {
+
+      const input =
+        document.getElementById(
+          "chatbotInput"
+        );
+
+
+      const userMessage =
+        input.value.trim();
+
+
+      /*
+         Don't send empty messages
+      */
+
+      if (!userMessage) {
+
+        return;
+
+      }
+
+
+      /*
+         Show user message
+      */
+
+      addMessage(
+        userMessage,
+        "user"
+      );
+
+
+      /*
+         Clear input
+      */
+
+      input.value = "";
+
+
+      /*
+         Show typing indicator
+      */
+
+      const messages =
+        document.getElementById(
+          "chatbotMessages"
+        );
+
+
+      const typing =
+        document.createElement(
+          "div"
+        );
+
+
+      typing.className =
+        "bot-message typing";
+
+
+      typing.id =
+        "typingIndicator";
+
+
+      typing.innerText =
+        "Portfolio AI is thinking...";
+
+
+      messages.appendChild(
+        typing
+      );
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+
+      /*
+         Simulate AI thinking
+      */
+
+      setTimeout(() => {
+
+
+        const typingIndicator =
+          document.getElementById(
+            "typingIndicator"
+          );
+
+
+        if (typingIndicator) {
+
+          typingIndicator.remove();
+
+        }
+
+
+        /*
+           Find appropriate answer
+        */
+
+        const response =
+          findBestAnswer(
+            userMessage
+          );
+
+
+        /*
+           Display response
+        */
+
+        addMessage(
+          response,
+          "bot"
+        );
+
+
+      }, 500);
+
+    }
+
+
+    /* =========================================
+       ENTER KEY
+    ========================================= */
+
+    function handleChatKey(event) {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        sendMessage();
+
+      }
+
+    }
+
   </script>
+
+
+</body>
+</html>
 
 </body>
 </html>
