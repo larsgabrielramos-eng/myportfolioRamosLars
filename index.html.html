@@ -407,6 +407,53 @@
       font-size: 20px;
     }
 
+    /* =========================================
+       CLICKABLE AI SUGGESTIONS
+    ========================================= */
+
+    .suggestions-wrapper {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(0,255,255,0.18);
+    }
+
+    .suggestions-title {
+      display: block;
+      color: #0ff;
+      font-size: 0.78rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-shadow: 0 0 6px rgba(0,255,255,0.5);
+    }
+
+    .suggestion-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .suggestion-btn {
+      width: 100%;
+      margin: 0;
+      padding: 8px 10px;
+      border: 1px solid rgba(0,255,255,0.45);
+      border-radius: 9px;
+      background: rgba(0,255,255,0.06);
+      color: #bfffff;
+      text-align: left;
+      font-size: 0.78rem;
+      line-height: 1.25;
+      box-shadow: none;
+      transition: 0.2s ease;
+    }
+
+    .suggestion-btn:hover {
+      background: rgba(0,255,255,0.16);
+      color: white;
+      transform: translateX(3px);
+      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+    }
+
 
     /* =========================================
        MOBILE CHATBOT
@@ -1498,45 +1545,239 @@
       ==========================================
     */
 
+    function getSuggestions(topic) {
+
+      const suggestions = {
+        greeting: [
+          "What are Lars' skills?",
+          "What projects does he have?",
+          "Where does Lars study?"
+        ],
+        about: [
+          "What are Lars' skills?",
+          "What are Lars' hobbies?",
+          "What is Lars' career goal?"
+        ],
+        skills: [
+          "What projects use Java?",
+          "What are Lars' achievements?",
+          "What programming languages does he know?"
+        ],
+        java: [
+          "What projects use Java?",
+          "Tell me about the Java Calculator.",
+          "Tell me about the Tic Tac Toe game."
+        ],
+        html: [
+          "What is Lars' portfolio website?",
+          "What are Lars' other skills?",
+          "What projects does he have?"
+        ],
+        csharp: [
+          "What are Lars' other programming skills?",
+          "What projects does he have?",
+          "What is Lars' career goal?"
+        ],
+        python: [
+          "What achievement did Lars have in Python?",
+          "What other programming languages does he know?",
+          "What are Lars' achievements?"
+        ],
+        projects: [
+          "What project uses Java?",
+          "Tell me about the Library Management System.",
+          "Tell me about the Personal Portfolio Website."
+        ],
+        library: [
+          "What other projects does Lars have?",
+          "What programming skills does Lars have?",
+          "What is Lars' experience?"
+        ],
+        portfolio: [
+          "What are Lars' skills?",
+          "What projects does he have?",
+          "Where does Lars study?"
+        ],
+        contactmanagement: [
+          "What other projects does Lars have?",
+          "What programming skills does Lars have?",
+          "What is Lars' experience?"
+        ],
+        loops: [
+          "What other projects does Lars have?",
+          "Does Lars know Java?",
+          "What are Lars' skills?"
+        ],
+        calculator: [
+          "What other Java projects does Lars have?",
+          "Does Lars know Java?",
+          "What other projects does he have?"
+        ],
+        tictactoe: [
+          "Does Lars know Java?",
+          "Tell me about the Java Calculator.",
+          "What other projects does he have?"
+        ],
+        experience: [
+          "What are Lars' skills?",
+          "What projects does he have?",
+          "What are Lars' achievements?"
+        ],
+        achievements: [
+          "Where does Lars study?",
+          "What programming skills does Lars have?",
+          "What is Lars' career goal?"
+        ],
+        education: [
+          "What is Lars studying?",
+          "What are Lars' achievements?",
+          "What is Lars' career goal?"
+        ],
+        pcu: [
+          "What is Lars studying?",
+          "What are Lars' achievements?",
+          "What are Lars' skills?"
+        ],
+        career: [
+          "What are Lars' skills?",
+          "What is Lars' experience?",
+          "What projects does he have?"
+        ],
+        hobbies: [
+          "What are Lars' skills?",
+          "What is Lars' career goal?",
+          "Tell me about Lars."
+        ],
+        location: [
+          "Where does Lars study?",
+          "How can I contact Lars?",
+          "What are Lars' skills?"
+        ],
+        contact: [
+          "Where is Lars located?",
+          "What is Lars' email?",
+          "Where can I find his resume?"
+        ],
+        facebook: [
+          "How can I contact Lars?",
+          "Where is Lars located?",
+          "Where can I find his resume?"
+        ],
+        resume: [
+          "What are Lars' skills?",
+          "What are Lars' achievements?",
+          "What projects does he have?"
+        ],
+        thanks: [
+          "What are Lars' skills?",
+          "What projects does he have?",
+          "How can I contact Lars?"
+        ],
+        unknown: [
+          "What are Lars' skills?",
+          "What projects does he have?",
+          "Where does Lars study?"
+        ]
+      };
+
+      return suggestions[topic] || suggestions.unknown;
+    }
+
+
+    function getTopic(item) {
+
+      if (!item) return "unknown";
+
+      const keywords = item.keywords;
+
+      if (keywords.includes("hello")) return "greeting";
+      if (keywords.includes("who is lars")) return "about";
+      if (keywords.includes("skills")) return "skills";
+      if (keywords.includes("java")) return "java";
+      if (keywords.includes("html")) return "html";
+      if (keywords.includes("c#")) return "csharp";
+      if (keywords.includes("python")) return "python";
+      if (keywords.includes("projects")) return "projects";
+      if (keywords.includes("library")) return "library";
+      if (keywords.includes("portfolio")) return "portfolio";
+      if (keywords.includes("contact management")) return "contactmanagement";
+      if (keywords.includes("loops")) return "loops";
+      if (keywords.includes("calculator")) return "calculator";
+      if (keywords.includes("tic tac toe")) return "tictactoe";
+      if (keywords.includes("experience")) return "experience";
+      if (keywords.includes("achievements")) return "achievements";
+      if (keywords.includes("education")) return "education";
+      if (keywords.includes("pcu")) return "pcu";
+      if (keywords.includes("goal")) return "career";
+      if (keywords.includes("hobbies")) return "hobbies";
+      if (keywords.includes("location")) return "location";
+      if (keywords.includes("contact")) return "contact";
+      if (keywords.includes("facebook")) return "facebook";
+      if (keywords.includes("resume")) return "resume";
+      if (keywords.includes("thank you")) return "thanks";
+
+      return "unknown";
+    }
+
+
+    function createSuggestions(topic) {
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "suggestions-wrapper";
+
+      const title = document.createElement("span");
+      title.className = "suggestions-title";
+      title.innerText = "You may also ask:";
+
+      const buttons = document.createElement("div");
+      buttons.className = "suggestion-buttons";
+
+      getSuggestions(topic).forEach(question => {
+
+        const button = document.createElement("button");
+        button.className = "suggestion-btn";
+        button.type = "button";
+        button.innerText = question;
+        button.onclick = () => askSuggestedQuestion(question);
+
+        buttons.appendChild(button);
+      });
+
+      wrapper.appendChild(title);
+      wrapper.appendChild(buttons);
+
+      return wrapper;
+    }
+
+
     function findBestAnswer(userInput) {
 
       const input = normalizeText(userInput);
 
       if (!input) {
-        return "Please enter a question. 🤖";
+        return {
+          answer: "Please enter a question. 🤖",
+          topic: "unknown"
+        };
       }
 
-      const words = input.split(/\\s+/);
+      // Fixed whitespace splitting so normal sentences work correctly.
+      const words = input.split(/\s+/);
 
-      /*
-        Ignore generic words when checking the question.
-        This prevents words like "lars", "about", "what",
-        and "is" from accidentally matching unrelated answers.
-      */
       const ignoredWords = new Set([
         "what", "whats", "is", "the", "a", "an",
         "my", "his", "her", "does", "do", "can",
         "tell", "me", "about", "who", "where",
         "how", "and", "of", "to", "in", "on",
-        "for", "lars", "please", "tell"
+        "for", "lars", "please"
       ]);
 
       const meaningfulWords = words.filter(
         word => word.length >= 3 && !ignoredWords.has(word)
       );
 
-      /*
-        PRIORITY CHECKS
-        These prevent questions about address/location
-        from incorrectly matching the About section.
-      */
       const locationTerms = [
-        "address",
-        "adress",
-        "location",
-        "located",
-        "taguig",
-        "city"
+        "address", "adress", "location", "located", "taguig", "city"
       ];
 
       const asksLocation = meaningfulWords.some(word =>
@@ -1546,12 +1787,16 @@
       );
 
       if (asksLocation) {
+
         const locationItem = portfolioKnowledge.find(item =>
           item.keywords.includes("location")
         );
 
         if (locationItem) {
-          return locationItem.answer;
+          return {
+            answer: locationItem.answer,
+            topic: "location"
+          };
         }
       }
 
@@ -1565,113 +1810,75 @@
         item.keywords.forEach(keyword => {
 
           const normalizedKeyword = normalizeText(keyword);
-          const keywordWords = normalizedKeyword.split(/\\s+/);
+          const keywordWords = normalizedKeyword.split(/\s+/);
 
-          /*
-            EXACT PHRASE MATCH
-          */
           if (input === normalizedKeyword) {
             score += 20;
           } else if (input.includes(normalizedKeyword)) {
             score += 10;
           }
 
-          /*
-            FUZZY MATCHING
-            Only compare meaningful words so generic words
-            cannot create false matches.
-          */
           keywordWords.forEach(keywordWord => {
 
-            if (
-              keywordWord.length < 3 ||
-              ignoredWords.has(keywordWord)
-            ) {
+            if (keywordWord.length < 3 || ignoredWords.has(keywordWord)) {
               return;
             }
 
             meaningfulWords.forEach(userWord => {
 
-              const match = similarity(
-                userWord,
-                keywordWord
-              );
+              const match = similarity(userWord, keywordWord);
 
               if (match >= 0.85) {
                 score += match * 4;
               }
 
             });
-
           });
-
         });
 
         if (score > highestScore) {
           highestScore = score;
           bestMatch = item;
         }
-
       });
 
-      /*
-        ONLY ANSWER WHEN THERE IS A STRONG MATCH
-        TO INFORMATION ACTUALLY IN THE PORTFOLIO.
-      */
       if (bestMatch && highestScore >= 5) {
-        return bestMatch.answer;
+        return {
+          answer: bestMatch.answer,
+          topic: getTopic(bestMatch)
+        };
       }
 
-      /*
-        QUESTION IS NOT STATED IN THE PORTFOLIO
-      */
-      return `
-
-        I'm sorry, but that information is not
-        stated in this portfolio. 🤖
-
-        <br><br>
-
-        <b>Lars Personal AI Chatbot</b> can only
-        answer questions based on the information
-        stated in this portfolio.
-
-        <br><br>
-
-        <b>You can ask me about:</b>
-
-        <br>
-        • Lars' personal information
-
-        <br>
-        • Skills
-
-        <br>
-        • Education
-
-        <br>
-        • Experience
-
-        <br>
-        • Achievements
-
-        <br>
-        • Projects
-
-        <br>
-        • Hobbies
-
-        <br>
-        • Career goals
-
-        <br>
-        • Resume
-
-        <br>
-        • Contact information
-
-      `;
-
+      return {
+        answer: `
+          I'm sorry, but that information is not stated in this portfolio. 🤖
+          <br><br>
+          <b>Lars Personal AI Chatbot</b> can only answer questions based on information stated in this portfolio.
+          <br><br>
+          <b>You can ask me about:</b>
+          <br>
+          • Lars' personal information
+          <br>
+          • Skills
+          <br>
+          • Education
+          <br>
+          • Experience
+          <br>
+          • Achievements
+          <br>
+          • Projects
+          <br>
+          • Hobbies
+          <br>
+          • Career goals
+          <br>
+          • Resume
+          <br>
+          • Contact information
+        `,
+        topic: "unknown"
+      };
     }
 
 
@@ -1713,46 +1920,30 @@
       ==========================================
     */
 
-    function addMessage(
-      message,
-      sender
-    ) {
+    function addMessage(message, sender, topic = null) {
 
-      const messages =
-        document.getElementById(
-          "chatbotMessages"
-        );
+      const messages = document.getElementById("chatbotMessages");
+      const messageElement = document.createElement("div");
 
+      messageElement.className =
+        sender === "user" ? "user-message" : "bot-message";
 
-      const messageElement =
-        document.createElement("div");
+      messageElement.innerHTML = message;
+      messages.appendChild(messageElement);
 
-
-      if (sender === "user") {
-
-        messageElement.className =
-          "user-message";
-
-      } else {
-
-        messageElement.className =
-          "bot-message";
-
+      if (sender === "bot" && topic) {
+        messageElement.appendChild(createSuggestions(topic));
       }
 
-
-      messageElement.innerHTML =
-        message;
-
-
-      messages.appendChild(
-        messageElement
-      );
+      messages.scrollTop = messages.scrollHeight;
+    }
 
 
-      messages.scrollTop =
-        messages.scrollHeight;
+    function askSuggestedQuestion(question) {
 
+      const input = document.getElementById("chatbotInput");
+      input.value = question;
+      sendMessage();
     }
 
 
@@ -1849,15 +2040,12 @@
         }
 
 
-        const response =
-          findBestAnswer(
-            userMessage
-          );
-
+        const result = findBestAnswer(userMessage);
 
         addMessage(
-          response,
-          "bot"
+          result.answer,
+          "bot",
+          result.topic
         );
 
 
